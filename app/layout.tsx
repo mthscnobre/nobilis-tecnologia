@@ -33,9 +33,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <div className="relative z-10">
             <Navbar />
             {children}
-            <ScrollTopButton />
           </div>
+          <ScrollTopButton />
         </ThemeProvider>
       </body>
     </html>
-  );}
+  );
+}
