@@ -56,11 +56,35 @@ export function Contact() {
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setSending(true);
-    await new Promise((r) => setTimeout(r, 1200));
-    setSending(false);
-    setSent(true);
-    (e.target as HTMLFormElement).reset();
-    setTimeout(() => setSent(false), 6000);
+
+    const form = e.target as HTMLFormElement;
+    const data = {
+      nome:     (form.elements.namedItem("nome")     as HTMLInputElement).value,
+      email:    (form.elements.namedItem("email")    as HTMLInputElement).value,
+      empresa:  (form.elements.namedItem("empresa")  as HTMLInputElement).value,
+      mensagem: (form.elements.namedItem("mensagem") as HTMLTextAreaElement).value,
+    };
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+
+      if (res.ok) {
+        setSent(true);
+        form.reset();
+        setTimeout(() => setSent(false), 6000);
+      } else {
+        // Erro da API — mantém o formulário aberto para o usuário tentar de novo
+        console.error("[contact] Erro ao enviar:", await res.json());
+      }
+    } catch {
+      console.error("[contact] Erro de rede.");
+    } finally {
+      setSending(false);
+    }
   }
 
   return (
