@@ -1,0 +1,234 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── VARIÁVEIS CSS — Manual de Identidade Visual Nobilis v1.0 ── */
+@layer base {
+  :root {
+    /* Neutros */
+    --obsidian-900: #060606;
+    --obsidian-800: #0D0D0D;
+    --obsidian-700: #1A1A1A;
+    --obsidian-600: #2A2A2A;
+    --obsidian-500: #3D3D3D;
+    --obsidian-400: #555555;
+    --obsidian-300: #707070;
+    --obsidian-200: #909090;
+    --obsidian-100: #D8D8D8;
+    --obsidian-50:  #EEEEEE;
+    --obsidian-0:   #FAF7F7;
+
+    /* Crimson */
+    --crimson-900: #2E0000;
+    --crimson-800: #4A0A06;
+    --crimson-700: #6B1009;
+    --crimson-600: #8B1A10;
+    --crimson-500: #A52419;
+    --crimson-400: #C0392B;
+    --crimson-300: #CC5247;
+    --crimson-200: #E8695D;
+    --crimson-100: #F7BFB5;
+    --crimson-50:  #FDF0EE;
+
+    /* Semânticos — dark mode (padrão) */
+    --background:    #0D0D0D;
+    --foreground:    #FAF7F7;
+    --surface:       #141414;
+    --surface-2:     #1E1E1E;
+    --border:        #262626;
+    --border-hover:  #3D3D3D;
+    --muted:         #777777;
+    --muted-subtle:  #444444;
+    --primary:       #C0392B;
+    --primary-hover: #8B1A10;
+    --primary-fg:    #FAF7F7;
+
+    /* shadcn/ui compatibility */
+    --radius: 0.625rem;
+    --accent: #1E1E1E;
+    --accent-foreground: #FAF7F7;
+    --ring: #C0392B;
+  }
+}
+
+/* ── TEMA CLARO ── */
+[data-theme="light"] {
+  --background:    #FAF7F7;
+  --foreground:    #1A0A0A;
+  --surface:       #F0EDED;
+  --surface-2:     #E8E5E5;
+  --border:        #D5D2D2;
+  --border-hover:  #B8B5B5;
+  --muted:         #666666;
+  --muted-subtle:  #999999;
+  --primary:       #C0392B;
+  --primary-hover: #8B1A10;
+  --primary-fg:    #FAF7F7;
+  --accent:        #F0EDED;
+  --accent-foreground: #1A0A0A;
+}
+
+/* ── BASE ── */
+@layer base {
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-outfit), sans-serif;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Transição suave ao trocar tema */
+  *, *::before, *::after {
+    transition: background-color 0.25s ease, border-color 0.25s ease;
+  }
+  /* Excluir animações de transition para não afetar motion */
+  [data-motion], .motion-safe\:animate-none { transition: none !important; }
+
+  ::-webkit-scrollbar       { width: 3px; }
+  ::-webkit-scrollbar-track { background: var(--background); }
+  ::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 2px; }
+
+  ::selection { background: var(--primary); color: var(--primary-fg); }
+}
+
+/* ── COMPONENTES ── */
+@layer components {
+  .font-cinzel { font-family: var(--font-cinzel), serif; }
+  .font-outfit { font-family: var(--font-outfit), sans-serif; }
+
+  /* Eyebrow */
+  .eyebrow {
+    font-family: var(--font-outfit), sans-serif;
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--primary);
+    display: block;
+  }
+
+  /* Barra crimson */
+  .crimson-bar { width: 100%; height: 2px; background-color: var(--primary); }
+
+  /* Cards de serviço */
+  .service-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 2rem 1.75rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  @media (min-width: 768px) { .service-card { aspect-ratio: 1 / 1; } }
+
+  /* Input de contato */
+  .contact-input {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 0.75rem 1rem;
+    color: var(--foreground);
+    font-family: var(--font-outfit), sans-serif;
+    font-size: 0.875rem;
+    font-weight: 300;
+    width: 100%;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .contact-input::placeholder { color: var(--muted-subtle); }
+  .contact-input:focus { border-color: var(--primary); }
+
+  /* Navbar blur */
+  .navbar-blur {
+    background: color-mix(in srgb, var(--background) 80%, transparent);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* Seção full viewport */
+  .section-full { min-height: 100svh; }
+
+  /* Pilar "como trabalhamos" */
+  .pillar-card {
+    border-left: 2px solid var(--primary);
+    padding-left: 1.5rem;
+  }
+
+  /* Marquee */
+  .marquee-fade {
+    /* Máscara de fade nas bordas — sem overflow:hidden para não cortar scale hover */
+    mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+  }
+}
+
+/* ── VIEW TRANSITION API ── */
+@keyframes vt-reveal {
+  from { clip-path: circle(0% at var(--vt-x, 50%) var(--vt-y, 50%)); }
+  to   { clip-path: circle(var(--vt-r, 100%) at var(--vt-x, 50%) var(--vt-y, 50%)); }
+}
+::view-transition-new(root) { animation: vt-reveal 0.5s ease-out; }
+::view-transition-old(root) { animation: none; }
+
+
+/* ── NOISE / GRAIN TEXTURE ──────────────────────────────────────────────────
+   SVG de ruído sutil aplicado ao body via pseudo-elemento.
+   opacity baixa para não interferir no conteúdo. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
+}
+
+/* Garantir que o conteúdo fique acima do noise */
+main, header, footer, section {
+  position: relative;
+  z-index: 1;
+}
+
+/* ── MARQUEE ANIMATION ──
+   Usa 3 cópias da lista e move -33.333% (1 cópia).
+   O reset acontece no ponto exato em que começa a 2ª cópia,
+   eliminando o salto visual. */
+@keyframes marquee-x {
+  from { transform: translateX(0); }
+  to   { transform: translateX(calc(-100% / 3)); }
+}
+
+/* ── THEME SWITCH — corrigir apenas o light mode ── */
+/* No dark mode o componente Unlumen funciona corretamente.
+   No light mode: fundo transparente + ícone escuro */
+
+/* Placeholder de hidratação — borda sutil sem fundo cinza */
+[data-theme="light"] .size-9.rounded-full.bg-accent {
+  background-color: transparent !important;
+  border: 1px solid var(--border) !important;
+}
+
+/* Botão hidratado no light mode */
+[data-theme="light"] button.size-9.rounded-full {
+  background-color: transparent !important;
+  border: 1px solid var(--border) !important;
+  color: var(--foreground) !important;
+}
+
+/* Ícones no light mode */
+[data-theme="light"] button.size-9.rounded-full svg {
+  color: var(--foreground) !important;
+}
+[data-theme="light"] button.size-9.rounded-full span {
+  color: var(--foreground) !important;
+}
