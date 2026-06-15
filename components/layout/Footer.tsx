@@ -26,7 +26,8 @@ export function Footer() {
               TECNOLOGIA
             </span>
             <p className="font-outfit font-light text-[0.7rem] text-[var(--muted)] mt-2 max-w-[240px] text-center md:text-left leading-relaxed">
-              Nobilis, do latim Nobre. Uma homenagem ao sobrenome do fundador.
+              Em latim, Nobilis. Em português, Nobre.
+Uma homenagem ao sobrenome do fundador.
             </p>
             <a
               href="/manual"
