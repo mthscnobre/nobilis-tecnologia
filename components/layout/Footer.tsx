@@ -28,6 +28,12 @@ export function Footer() {
             <p className="font-outfit font-light text-[0.7rem] text-[var(--muted)] mt-2 max-w-[240px] text-center md:text-left leading-relaxed">
               Nobilis, do latim Nobre. Uma homenagem ao sobrenome do fundador.
             </p>
+            <a
+              href="/manual"
+              className="font-outfit font-light text-[0.65rem] tracking-[0.1em] uppercase text-[var(--muted-subtle)] hover:text-[var(--primary)] transition-colors duration-200 mt-1"
+            >
+              Manual de Identidade Visual ↗
+            </a>
           </div>
 
           <p className="text-[var(--muted)] text-xs font-light tracking-wide">

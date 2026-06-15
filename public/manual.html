@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manual de Identidade Visual — Nobilis Tecnologia</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ── RESET & BASE ── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:        #0D0D0D;
+  --surface:   #141414;
+  --surface2:  #1E1E1E;
+  --border:    #262626;
+  --fg:        #FAF7F7;
+  --muted:     #777;
+  --subtle:    #444;
+  --primary:   #C0392B;
+  --primary-h: #8B1A10;
+  --cinzel:    'Cinzel', Georgia, serif;
+  --outfit:    'Outfit', system-ui, sans-serif;
+}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--fg);
+  font-family:var(--outfit);
+  font-size:15px;
+  line-height:1.7;
+  overflow-x:hidden;
+}
+
+/* ── NOISE GRAIN ── */
+body::before{
+  content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
+  opacity:.03;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size:200px 200px;
+}
+
+/* ── BARRA CRIMSON ── */
+.crimson-bar{width:100%;height:2px;background:var(--primary);position:relative;z-index:10}
+
+/* ── NAV ── */
+nav{
+  position:sticky;top:0;z-index:50;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:.875rem 2rem;
+  background:rgba(13,13,13,.85);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
+}
+.nav-logo{display:flex;flex-direction:column;gap:2px;text-decoration:none}
+.nav-logo-w{font-family:var(--cinzel);font-weight:700;font-size:.875rem;letter-spacing:.1em;color:var(--fg)}
+.nav-logo-s{font-family:var(--cinzel);font-weight:400;font-size:.42rem;letter-spacing:.26em;color:var(--primary);text-transform:uppercase}
+.nav-links{display:flex;gap:2rem}
+.nav-links a{font-family:var(--outfit);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--fg)}
+
+/* ── HERO ── */
+.hero{
+  min-height:100svh;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;padding:2rem;position:relative;
+}
+.hero-wordmark{
+  font-family:var(--cinzel);font-weight:700;
+  font-size:clamp(3rem,10vw,7rem);
+  letter-spacing:.1em;color:var(--fg);
+  opacity:0;animation:fadeUp .8s .3s forwards;
+}
+.hero-sub{
+  font-family:var(--cinzel);font-weight:400;
+  font-size:clamp(.8rem,2vw,1.1rem);
+  letter-spacing:.3em;color:var(--primary);
+  text-transform:uppercase;margin-top:.75rem;
+  opacity:0;animation:fadeUp .8s .5s forwards;
+}
+.hero-tag{
+  margin-top:2.5rem;
+  font-family:var(--outfit);font-weight:300;
+  font-size:clamp(.875rem,1.5vw,1rem);
+  color:var(--muted);max-width:480px;line-height:1.7;
+  opacity:0;animation:fadeUp .8s .7s forwards;
+}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:.5rem;
+  margin-top:1.5rem;padding:.4rem 1rem;
+  border:1px solid var(--border);border-radius:999px;
+  font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);
+  opacity:0;animation:fadeUp .8s .9s forwards;
+}
+.hero-badge span{width:6px;height:6px;border-radius:50%;background:var(--primary);animation:pulse 2s infinite}
+.hero-arrow{
+  position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);
+  color:var(--muted);text-decoration:none;
+  animation:bounce 2s infinite;
+  opacity:0;animation:fadeIn 1s 1.2s forwards, bounce 2s 1.2s infinite;
+}
+.hero-arrow svg{width:24px;height:24px;stroke:currentColor;fill:none;stroke-width:1.5}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+@keyframes fadeIn{from{opacity:0}to{opacity:.6}}
+@keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.3;transform:scale(1.8)}}
+@keyframes shimmer{to{transform:translateX(200%)}}
+@keyframes countup{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+/* ── LAYOUT ── */
+main{position:relative;z-index:1}
+.section{padding:5rem 2rem;max-width:960px;margin:0 auto}
+.section-sep{height:1px;max-width:960px;margin:0 auto;background:linear-gradient(to right,transparent,var(--border) 20%,var(--border) 80%,transparent)}
+.eyebrow{display:block;font-size:.65rem;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--primary);margin-bottom:.75rem}
+.section-title{font-family:var(--cinzel);font-weight:700;font-size:clamp(1.5rem,3vw,2.2rem);letter-spacing:.08em;text-transform:uppercase;color:var(--fg)}
+
+/* ── 01 LOGOTIPO ── */
+.logo-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:2.5rem}
+@media(max-width:600px){.logo-grid{grid-template-columns:1fr}}
+.logo-box{
+  border-radius:14px;padding:2.5rem 2rem;min-height:140px;
+  display:flex;flex-direction:column;justify-content:center;
+  border:1px solid transparent;
+  transition:transform .3s,box-shadow .3s;cursor:default;
+}
+.logo-box:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,.4)}
+.logo-box.dark  {background:#0D0D0D;border-color:#1E1E1E}
+.logo-box.light {background:#FAF7F7;border-color:#E0DDDA}
+.logo-box.red   {background:#C0392B}
+.logo-box.accent{background:#F0EDED;border-color:#D8D8D8}
+.lbw{font-family:var(--cinzel);font-size:2rem;font-weight:700;letter-spacing:.1em;line-height:1}
+.lbs{font-family:var(--cinzel);font-size:.625rem;font-weight:400;letter-spacing:.26em;text-transform:uppercase;margin-top:.5rem}
+.logo-cap{font-size:.75rem;color:var(--muted);margin-top:.75rem;font-family:var(--outfit)}
+
+/* ── 02 PALETA ── */
+.palette-group{margin-bottom:2.5rem}
+.palette-label{font-size:.7rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:.75rem}
+.palette-row{display:flex;gap:4px;border-radius:10px;overflow:hidden}
+.swatch{
+  flex:1;height:72px;display:flex;flex-direction:column;align-items:center;
+  justify-content:flex-end;padding-bottom:6px;position:relative;cursor:pointer;
+  transition:flex .3s;
+}
+.swatch:hover{flex:2.5}
+.swatch-hex{font-size:.6rem;font-family:monospace;font-weight:600;opacity:0;transition:opacity .2s}
+.swatch:hover .swatch-hex{opacity:1}
+.swatch-name{font-size:.55rem;opacity:.6;margin-top:1px}
+
+/* Shimmer nos swatches primários */
+.swatch.prime::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.08),transparent);
+  transform:translateX(-100%);
+  animation:shimmer 2.5s 1s ease-in-out infinite;
+}
+
+/* Tabela de referência */
+.ref-table{width:100%;border-collapse:collapse;margin-top:1.5rem;font-size:.8rem}
+.ref-table th{text-align:left;font-weight:600;font-size:.65rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:.5rem .75rem;border-bottom:1px solid var(--border)}
+.ref-table td{padding:.6rem .75rem;border-bottom:1px solid var(--border);color:var(--fg)}
+.ref-table tr:last-child td{border-bottom:none}
+.ref-table td:nth-child(2){font-family:monospace;color:var(--primary)}
+.ref-table tr:hover td{background:var(--surface)}
+
+/* ── 03 TIPOGRAFIA ── */
+.tipo-card{
+  background:var(--surface);border:1px solid var(--border);border-radius:14px;
+  padding:2rem;margin-bottom:1rem;position:relative;overflow:hidden;
+}
+.tipo-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--primary)}
+.tipo-tag{font-size:.65rem;color:var(--muted);letter-spacing:.12em;text-transform:uppercase;margin-bottom:1rem}
+.tipo-h1{font-family:var(--cinzel);font-size:2.5rem;font-weight:700;color:var(--fg);letter-spacing:.06em;line-height:1.1}
+.tipo-h2{font-family:var(--cinzel);font-size:1.5rem;font-weight:600;color:var(--fg);letter-spacing:.08em;margin-top:.5rem}
+.tipo-h3{font-family:var(--cinzel);font-size:.875rem;font-weight:400;color:var(--muted);letter-spacing:.14em;text-transform:uppercase;margin-top:.5rem}
+.tipo-body{font-size:.95rem;font-weight:400;color:var(--muted);line-height:1.7;margin-top:.75rem}
+.tipo-ui{font-size:.8rem;font-weight:500;color:var(--fg);letter-spacing:.04em;margin-top:.5rem}
+.tipo-meta{font-size:.7rem;color:var(--subtle);margin-top:1rem;padding-top:.75rem;border-top:1px solid var(--border);line-height:1.8}
+.tipo-meta a{color:var(--primary);text-decoration:none}
+.tipo-meta a:hover{text-decoration:underline}
+
+/* Tabela tipografia */
+.tipo-table{width:100%;border-collapse:collapse;margin-top:1.5rem;font-size:.8rem}
+.tipo-table th{text-align:left;font-size:.65rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:.5rem .75rem;border-bottom:1px solid var(--border)}
+.tipo-table td{padding:.6rem .75rem;border-bottom:1px solid var(--border);color:var(--fg)}
+.tipo-table tr:last-child td{border-bottom:none}
+.tipo-table tr:hover td{background:var(--surface)}
+
+/* ── 04 APLICAÇÕES ── */
+.apps-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:2.5rem}
+@media(max-width:640px){.apps-grid{grid-template-columns:1fr}}
+.app-label{font-size:.7rem;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.75rem}
+
+/* Cartão de visita */
+.cartao{
+  background:#0D0D0D;border-radius:16px;padding:2rem;
+  min-height:200px;display:flex;flex-direction:column;justify-content:space-between;
+  position:relative;overflow:hidden;border:1px solid #1E1E1E;
+  transition:transform .3s,box-shadow .3s;
+}
+.cartao:hover{transform:translateY(-4px) rotateX(2deg);box-shadow:0 20px 60px rgba(192,57,43,.15)}
+.cartao::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--primary)}
+.cartao-nome{font-family:var(--cinzel);font-size:1rem;font-weight:600;color:#F0EDED;letter-spacing:.07em}
+.cartao-cargo{font-size:.7rem;color:var(--primary);letter-spacing:.1em;text-transform:uppercase;margin-top:.25rem}
+.cartao-info{font-size:.7rem;color:var(--muted);margin-top:1.5rem;line-height:1.9}
+.cartao-marca{font-family:var(--cinzel);font-size:1.25rem;font-weight:700;color:#F0EDED;letter-spacing:.1em}
+.cartao-msub{font-family:var(--cinzel);font-size:.5rem;color:var(--primary);letter-spacing:.22em;text-transform:uppercase;margin-top:2px;text-align:right}
+
+/* Assinatura */
+.assinatura{
+  background:var(--surface);border-radius:14px;padding:1.75rem 2rem;
+  border:1px solid var(--border);border-left:4px solid var(--primary);
+}
+.ass-nome{font-family:var(--cinzel);font-size:1.1rem;font-weight:700;color:var(--fg);letter-spacing:.06em}
+.ass-cargo{font-size:.7rem;color:var(--primary);letter-spacing:.1em;text-transform:uppercase;margin-top:.25rem}
+.ass-div{border:none;border-top:1px solid var(--border);margin:.75rem 0}
+.ass-empresa{font-family:var(--cinzel);font-size:.75rem;color:var(--muted);letter-spacing:.1em}
+.ass-contato{font-size:.75rem;color:var(--muted);margin-top:.4rem;line-height:1.9}
+
+/* ── 05 REGRAS ── */
+.regras-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:2.5rem}
+@media(max-width:600px){.regras-grid{grid-template-columns:1fr}}
+.regra{border-radius:14px;padding:1.75rem;background:var(--surface);border:1px solid var(--border)}
+.regra.sim{border-left:4px solid #2ecc71}
+.regra.nao{border-left:4px solid var(--primary)}
+.regra-titulo{font-size:.7rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;margin-bottom:1rem}
+.regra.sim .regra-titulo{color:#2ecc71}
+.regra.nao .regra-titulo{color:var(--primary)}
+.regra-item{font-size:.8rem;color:var(--muted);line-height:1.7;padding:.5rem 0;border-bottom:1px solid var(--border)}
+.regra-item:last-child{border-bottom:none}
+
+/* ── 06 FAVICON ── */
+.favicon-grid{display:flex;flex-wrap:wrap;gap:2rem;align-items:flex-end;margin-top:2.5rem}
+.fav-item{display:flex;flex-direction:column;align-items:center;gap:.75rem}
+.fav-box{
+  background:var(--surface);border:1px solid var(--border);border-radius:12px;
+  display:flex;align-items:center;justify-content:center;
+  position:relative;overflow:hidden;
+}
+.fav-n{font-family:var(--cinzel);font-weight:700;color:var(--primary);line-height:1;position:relative}
+.fav-label{font-size:.65rem;color:var(--muted);letter-spacing:.08em}
+
+/* ── FOOTER ── */
+footer{
+  padding:2.5rem 2rem;max-width:960px;margin:0 auto;
+  border-top:1px solid var(--border);
+  display:flex;flex-direction:column;align-items:center;gap:.5rem;text-align:center;
+}
+.footer-marca{font-family:var(--cinzel);font-weight:700;font-size:1.25rem;letter-spacing:.1em;color:var(--fg)}
+.footer-sub{font-family:var(--cinzel);font-weight:400;font-size:.5rem;letter-spacing:.28em;color:var(--primary);text-transform:uppercase}
+.footer-origin{font-size:.7rem;color:var(--muted);margin-top:.5rem}
+.footer-links{display:flex;gap:1.5rem;margin-top:.75rem}
+.footer-links a{font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--subtle);text-decoration:none;transition:color .2s}
+.footer-links a:hover{color:var(--primary)}
+
+/* ── TOOLTIP NATIVO ── */
+[data-tip]{position:relative;cursor:default}
+[data-tip]:hover::after{
+  content:attr(data-tip);
+  position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%);
+  background:var(--primary);color:#fff;
+  font-family:var(--outfit);font-size:.65rem;font-weight:500;letter-spacing:.08em;
+  padding:.3rem .75rem;border-radius:6px;white-space:nowrap;
+  pointer-events:none;z-index:100;
+}
+
+/* ── SCROLL PROGRESS ── */
+#progress{position:fixed;top:0;left:0;height:2px;background:var(--primary);z-index:200;width:0%;transition:width .1s}
+
+/* ── SCROLL TOP ── */
+#scroll-top{
+  position:fixed;bottom:2rem;right:2rem;z-index:100;
+  width:40px;height:40px;border-radius:50%;
+  border:1px solid var(--border);background:var(--surface);
+  color:var(--muted);cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;transition:opacity .3s,color .2s,border-color .2s;
+  pointer-events:none;
+}
+#scroll-top.visible{opacity:1;pointer-events:auto}
+#scroll-top:hover{color:var(--primary);border-color:var(--primary)}
+#scroll-top svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:1.5}
+</style>
+</head>
+<body>
+
+<!-- Scroll progress -->
+<div id="progress"></div>
+<div class="crimson-bar"></div>
+
+<!-- NAV -->
+<nav>
+  <a href="#topo" class="nav-logo" onclick="window.scrollTo({top:0,behavior:'smooth'});return false">
+    <span class="nav-logo-w">NOBILIS</span>
+    <span class="nav-logo-s">Tecnologia</span>
+  </a>
+  <div class="nav-links">
+    <a href="#logotipo">Logotipo</a>
+    <a href="#paleta">Paleta</a>
+    <a href="#tipografia">Tipografia</a>
+    <a href="#aplicacoes">Aplicações</a>
+    <a href="#regras">Regras</a>
+  </div>
+</nav>
+
+<main>
+
+<!-- HERO -->
+<section id="topo" class="hero">
+  <div class="hero-wordmark">NOBILIS</div>
+  <div class="hero-sub">Tecnologia</div>
+  <p class="hero-tag">Manual de Identidade Visual · v1.0 · 2026</p>
+  <div class="hero-badge"><span></span>Uso interno e confidencial</div>
+  <a href="#logotipo" class="hero-arrow" aria-label="Ver manual">
+    <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+  </a>
+</section>
+
+<div class="section-sep"></div>
+
+<!-- 01 LOGOTIPO -->
+<section id="logotipo" class="section">
+  <span class="eyebrow">01</span>
+  <h2 class="section-title">Logotipo</h2>
+
+  <div class="logo-grid">
+    <div>
+      <div class="logo-box dark">
+        <div class="lbw" style="color:#F0EDED">NOBILIS</div>
+        <div class="lbs" style="color:#C0392B">Tecnologia</div>
+      </div>
+      <div class="logo-cap">Versão principal — fundo escuro</div>
+    </div>
+    <div>
+      <div class="logo-box light">
+        <div class="lbw" style="color:#1A0A0A">NOBILIS</div>
+        <div class="lbs" style="color:#8B1A10">Tecnologia</div>
+      </div>
+      <div class="logo-cap">Versão light — fundo claro</div>
+    </div>
+    <div>
+      <div class="logo-box red">
+        <div class="lbw" style="color:#FAF7F7">NOBILIS</div>
+        <div class="lbs" style="color:rgba(255,255,255,.7)">Tecnologia</div>
+      </div>
+      <div class="logo-cap">Versão sobre vermelho</div>
+    </div>
+    <div>
+      <div class="logo-box accent">
+        <div class="lbw" style="color:#C0392B">NOBILIS</div>
+        <div class="lbs" style="color:#8B1A10">Tecnologia</div>
+      </div>
+      <div class="logo-cap">Versão acento — vermelho sobre claro</div>
+    </div>
+  </div>
+</section>
+
+<div class="section-sep"></div>
+
+<!-- 02 PALETA -->
+<section id="paleta" class="section">
+  <span class="eyebrow">02</span>
+  <h2 class="section-title">Paleta de Cores</h2>
+
+  <div style="margin-top:2.5rem">
+    <div class="palette-group">
+      <div class="palette-label">Neutros — Obsidian</div>
+      <div class="palette-row">
+        <div class="swatch" style="background:#060606" data-tip="#060606"><span class="swatch-hex" style="color:#555">#060606</span><span class="swatch-name" style="color:#444">900</span></div>
+        <div class="swatch prime" style="background:#0D0D0D" data-tip="#0D0D0D"><span class="swatch-hex" style="color:#666">#0D0D0D</span><span class="swatch-name" style="color:#555">800</span></div>
+        <div class="swatch" style="background:#1A1A1A" data-tip="#1A1A1A"><span class="swatch-hex" style="color:#888">#1A1A1A</span><span class="swatch-name" style="color:#777">700</span></div>
+        <div class="swatch" style="background:#2A2A2A" data-tip="#2A2A2A"><span class="swatch-hex" style="color:#aaa">#2A2A2A</span><span class="swatch-name" style="color:#999">600</span></div>
+        <div class="swatch" style="background:#3D3D3D" data-tip="#3D3D3D"><span class="swatch-hex" style="color:#bbb">#3D3D3D</span><span class="swatch-name" style="color:#aaa">500</span></div>
+        <div class="swatch" style="background:#555555" data-tip="#555555"><span class="swatch-hex" style="color:#ccc">#555</span><span class="swatch-name" style="color:#bbb">400</span></div>
+        <div class="swatch" style="background:#707070" data-tip="#707070"><span class="swatch-hex" style="color:#eee">#707</span><span class="swatch-name" style="color:#ddd">300</span></div>
+        <div class="swatch" style="background:#909090" data-tip="#909090"><span class="swatch-hex" style="color:#fff">#909</span><span class="swatch-name" style="color:#eee">200</span></div>
+        <div class="swatch" style="background:#D8D8D8" data-tip="#D8D8D8"><span class="swatch-hex" style="color:#333">#D8D</span><span class="swatch-name" style="color:#444">100</span></div>
+        <div class="swatch" style="background:#FAF7F7;outline:1px solid #E0DDDA" data-tip="#FAF7F7"><span class="swatch-hex" style="color:#555">#FAF7F7</span><span class="swatch-name" style="color:#666">0</span></div>
+      </div>
+    </div>
+
+    <div class="palette-group">
+      <div class="palette-label">Primária — Crimson</div>
+      <div class="palette-row">
+        <div class="swatch" style="background:#2E0000" data-tip="#2E0000"><span class="swatch-hex" style="color:#666">#2E0</span><span class="swatch-name" style="color:#555">900</span></div>
+        <div class="swatch" style="background:#4A0A06" data-tip="#4A0A06"><span class="swatch-hex" style="color:#888">#4A0</span><span class="swatch-name" style="color:#777">800</span></div>
+        <div class="swatch" style="background:#6B1009" data-tip="#6B1009"><span class="swatch-hex" style="color:#aaa">#6B1</span><span class="swatch-name" style="color:#999">700</span></div>
+        <div class="swatch" style="background:#8B1A10" data-tip="#8B1A10"><span class="swatch-hex" style="color:#ccc">#8B1A10</span><span class="swatch-name" style="color:#bbb">600</span></div>
+        <div class="swatch prime" style="background:#C0392B;outline:2px solid #fff;outline-offset:-3px" data-tip="#C0392B ★"><span class="swatch-hex" style="color:#fff">#C0392B</span><span class="swatch-name" style="color:#eee">400★</span></div>
+        <div class="swatch" style="background:#CC5247" data-tip="#CC5247"><span class="swatch-hex" style="color:#fff">#CC5</span><span class="swatch-name" style="color:#eee">300</span></div>
+        <div class="swatch" style="background:#E8695D" data-tip="#E8695D"><span class="swatch-hex" style="color:#2E0000">#E86</span><span class="swatch-name" style="color:#4A0000">200</span></div>
+        <div class="swatch" style="background:#F7BFB5" data-tip="#F7BFB5"><span class="swatch-hex" style="color:#2E0000">#F7B</span><span class="swatch-name" style="color:#4A0000">100</span></div>
+        <div class="swatch" style="background:#FDF0EE;outline:1px solid #eee" data-tip="#FDF0EE"><span class="swatch-hex" style="color:#8B1A10">#FDF0EE</span><span class="swatch-name" style="color:#a52419">50</span></div>
+      </div>
+    </div>
+  </div>
+
+  <table class="ref-table">
+    <thead><tr><th>Token</th><th>Hex</th><th>Uso principal</th></tr></thead>
+    <tbody>
+      <tr><td>crimson-400 ★</td><td>#C0392B</td><td>Cor primária — CTAs, destaques, links</td></tr>
+      <tr><td>crimson-600</td><td>#8B1A10</td><td>Estados hover, ênfase secundária</td></tr>
+      <tr><td>crimson-50</td><td>#FDF0EE</td><td>Fundos de alerta, backgrounds suaves</td></tr>
+      <tr><td>obsidian-800</td><td>#0D0D0D</td><td>Fundo principal dark, logotipo</td></tr>
+      <tr><td>obsidian-0</td><td>#FAF7F7</td><td>Fundo principal light, textos sobre dark</td></tr>
+      <tr><td>obsidian-400</td><td>#555555</td><td>Texto secundário, ícones</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<div class="section-sep"></div>
+
+<!-- 03 TIPOGRAFIA -->
+<section id="tipografia" class="section">
+  <span class="eyebrow">03</span>
+  <h2 class="section-title">Tipografia</h2>
+
+  <div style="margin-top:2.5rem">
+    <div class="tipo-card">
+      <div class="tipo-tag">Cinzel — Logotipo, títulos, destaques de marca</div>
+      <div class="tipo-h1">NOBILIS TECNOLOGIA</div>
+      <div class="tipo-h2">Soluções em Tecnologia</div>
+      <div class="tipo-h3">Desenvolvimento · Consultoria · Sistemas</div>
+      <div class="tipo-meta">
+        H1 · Peso 700 · Tamanho mínimo 24px · Sempre uppercase no logotipo<br>
+        H2 · Peso 600 · Títulos de seção e cabeçalhos<br>
+        H3 · Peso 400 · Labels, subtítulos, chamadas uppercase<br>
+        Download:
+        <a href="https://fonts.google.com/specimen/Cinzel?preview.script=Latn" target="_blank" rel="noopener">Google Fonts — Cinzel</a>
+        &nbsp;·&nbsp;
+        <a href="/Cinzel.zip" download>Baixar arquivo</a>
+      </div>
+    </div>
+
+    <div class="tipo-card">
+      <div class="tipo-tag">Outfit — Corpo de texto, interface, comunicação</div>
+      <div class="tipo-body">A Nobilis Tecnologia desenvolve sistemas sob medida para empresas que buscam eficiência, controle e excelência em seus processos digitais. Nossa abordagem combina rigor técnico com atenção às necessidades reais do cliente.</div>
+      <div class="tipo-ui">Dashboard · Relatórios · Exportar · Configurações · Suporte</div>
+      <div class="tipo-meta">
+        Body · Peso 400 · 15–16px · Interline 1.6–1.7<br>
+        UI Labels · Peso 500 · 12–14px · Interline 1.4<br>
+        Legendas · Peso 300 · 11–12px<br>
+        Download:
+        <a href="https://fonts.google.com/specimen/Outfit?preview.script=Latn" target="_blank" rel="noopener">Google Fonts — Outfit</a>
+        &nbsp;·&nbsp;
+        <a href="/Outfit.zip" download>Baixar arquivo</a>
+      </div>
+    </div>
+  </div>
+
+  <table class="tipo-table">
+    <thead><tr><th>Elemento</th><th>Fonte</th><th>Peso</th><th>Tamanho</th><th>Letter-spacing</th></tr></thead>
+    <tbody>
+      <tr><td>Logo NOBILIS</td><td>Cinzel</td><td>700</td><td>variável</td><td>0.1em</td></tr>
+      <tr><td>Logo TECNOLOGIA (capa/hero)</td><td>Cinzel</td><td>400</td><td>13px+</td><td>0.3em</td></tr>
+      <tr><td>Logo TECNOLOGIA (navbar/rodapé)</td><td>Cinzel</td><td>400</td><td>10px</td><td>0.26em</td></tr>
+      <tr><td>Títulos de seção</td><td>Cinzel</td><td>700</td><td>24–36px</td><td>0.08em</td></tr>
+      <tr><td>Eyebrow / label</td><td>Outfit</td><td>500</td><td>11px</td><td>0.22em</td></tr>
+      <tr><td>Corpo de texto</td><td>Outfit</td><td>300–400</td><td>15–16px</td><td>normal</td></tr>
+      <tr><td>Botões / UI</td><td>Outfit</td><td>500</td><td>12–13px</td><td>0.08–0.1em</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<div class="section-sep"></div>
+
+<!-- 04 APLICAÇÕES -->
+<section id="aplicacoes" class="section">
+  <span class="eyebrow">04</span>
+  <h2 class="section-title">Aplicações</h2>
+
+  <div class="apps-grid">
+    <div>
+      <div class="app-label">Cartão de visita</div>
+      <div class="cartao">
+        <div>
+          <div class="cartao-nome">Matheus Chaves Nobre</div>
+          <div class="cartao-cargo">Desenvolvedor &amp; Consultor de TI</div>
+          <div class="cartao-info">
+            matheus@nobilis.com.br<br>
+            nobilistecnologia.com.br<br>
+            Brasília, DF
+          </div>
+        </div>
+        <div style="display:flex;justify-content:flex-end;margin-top:1.5rem">
+          <div>
+            <div class="cartao-marca">NOBILIS</div>
+            <div class="cartao-msub">Tecnologia</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="app-label">Assinatura de e-mail</div>
+      <div class="assinatura">
+        <div class="ass-nome">Matheus Chaves Nobre</div>
+        <div class="ass-cargo">Desenvolvedor · Consultor de TI</div>
+        <hr class="ass-div">
+        <div class="ass-empresa">NOBILIS TECNOLOGIA</div>
+        <div class="ass-contato">
+          matheus@nobilis.com.br<br>
+          nobilistecnologia.com.br<br>
+          Brasília, DF
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-sep"></div>
+
+<!-- 05 REGRAS -->
+<section id="regras" class="section">
+  <span class="eyebrow">05</span>
+  <h2 class="section-title">Regras de Uso</h2>
+
+  <div class="regras-grid">
+    <div class="regra sim">
+      <div class="regra-titulo">✓ Correto</div>
+      <div class="regra-item">Use NOBILIS em caixa alta com a fonte Cinzel</div>
+      <div class="regra-item">Use o vermelho #C0392B como cor de acento principal</div>
+      <div class="regra-item">Mantenha espaço mínimo ao redor do logotipo equivalente à altura da letra "B"</div>
+      <div class="regra-item">Use Outfit para todo corpo de texto e interfaces</div>
+      <div class="regra-item">Aplique sempre o logotipo nas quatro versões previstas</div>
+    </div>
+    <div class="regra nao">
+      <div class="regra-titulo">✗ Incorreto</div>
+      <div class="regra-item">Não use Cinzel em corpo de texto corrido</div>
+      <div class="regra-item">Não aplique o logotipo sobre fundos com baixo contraste</div>
+      <div class="regra-item">Não distorça, rotacione ou altere as proporções do logotipo</div>
+      <div class="regra-item">Não substitua o crimson por tonalidades fora da paleta</div>
+      <div class="regra-item">Não use o logotipo sobre fundos fotográficos sem overlay</div>
+    </div>
+  </div>
+</section>
+
+<div class="section-sep"></div>
+
+<!-- 06 FAVICON -->
+<section class="section">
+  <span class="eyebrow">06</span>
+  <h2 class="section-title">Favicon</h2>
+
+  <div class="favicon-grid">
+    <div class="fav-item">
+      <div class="fav-box" style="width:96px;height:96px;border-radius:20px">
+        <span class="fav-n" style="font-size:76px">N</span>
+      </div>
+      <span class="fav-label">512px</span>
+    </div>
+    <div class="fav-item">
+      <div class="fav-box" style="width:48px;height:48px;border-radius:10px">
+        <span class="fav-n" style="font-size:38px">N</span>
+      </div>
+      <span class="fav-label">192px</span>
+    </div>
+    <div class="fav-item">
+      <div class="fav-box" style="width:36px;height:36px;border-radius:8px">
+        <span class="fav-n" style="font-size:28px">N</span>
+      </div>
+      <span class="fav-label">180px</span>
+    </div>
+    <div class="fav-item">
+      <div class="fav-box" style="width:24px;height:24px;border-radius:5px">
+        <span class="fav-n" style="font-size:19px">N</span>
+      </div>
+      <span class="fav-label">32px</span>
+    </div>
+    <div class="fav-item">
+      <div class="fav-box" style="width:16px;height:16px;border-radius:3px">
+        <span class="fav-n" style="font-size:12px">N</span>
+      </div>
+      <span class="fav-label">16px</span>
+    </div>
+  </div>
+
+  <p style="margin-top:1.5rem;font-size:.8rem;color:var(--muted)">
+    Letra N em Cinzel Bold, cor <code style="font-size:.75rem;color:var(--primary)">#C0392B</code>, fundo transparente. Arquivos em <code style="font-size:.75rem;color:var(--muted)">/public/</code>.
+  </p>
+</section>
+
+</main>
+
+<!-- RODAPÉ -->
+<div class="section-sep"></div>
+<footer>
+  <div class="footer-marca">NOBILIS</div>
+  <div class="footer-sub">Tecnologia</div>
+  <div class="footer-origin">Nobilis, do latim Nobre. Uma homenagem ao sobrenome do fundador.</div>
+  <div class="footer-links">
+    <a href="https://nobilistecnologia.com.br" target="_blank">Site</a>
+    <a href="https://fonts.google.com/specimen/Cinzel?preview.script=Latn" target="_blank">Cinzel</a>
+    <a href="https://fonts.google.com/specimen/Outfit?preview.script=Latn" target="_blank">Outfit</a>
+  </div>
+  <div style="font-size:.65rem;color:var(--subtle);margin-top:.5rem">Manual de Identidade Visual · v1.0 · 2026 · Uso interno</div>
+</footer>
+
+<div class="crimson-bar"></div>
+
+<!-- Botão voltar ao topo -->
+<button id="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Voltar ao topo">
+  <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
+<script>
+// Progress bar
+const progress = document.getElementById('progress');
+const scrollTop = document.getElementById('scroll-top');
+window.addEventListener('scroll', () => {
+  const h = document.documentElement;
+  const pct = (window.scrollY / (h.scrollHeight - h.clientHeight)) * 100;
+  progress.style.width = pct + '%';
+  scrollTop.classList.toggle('visible', window.scrollY > window.innerHeight * .5);
+}, { passive: true });
+
+// Copy hex ao clicar nas swatches
+document.querySelectorAll('.swatch[data-tip]').forEach(s => {
+  s.style.cursor = 'pointer';
+  s.addEventListener('click', () => {
+    const hex = s.dataset.tip.split(' ')[0];
+    navigator.clipboard?.writeText(hex);
+    const old = s.dataset.tip;
+    s.dataset.tip = 'Copiado!';
+    setTimeout(() => s.dataset.tip = old, 1200);
+  });
+});
+
+// Animação de entrada nas seções
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.style.opacity = '1';
+      e.target.style.transform = 'none';
+    }
+  });
+}, { threshold: .1 });
+
+document.querySelectorAll('.logo-box, .tipo-card, .cartao, .assinatura, .regra, .fav-item').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(20px)';
+  el.style.transition = 'opacity .5s, transform .5s';
+  obs.observe(el);
+});
+</script>
+</body>
+</html>
