@@ -90,6 +90,8 @@ function Swatch({ hex, name, light, star }: SwatchItem) {
           background: hex,
           position: "relative",
           borderRadius: "6px",
+          // Borda sutil para cores muito claras que se confundem com o fundo
+          boxShadow: light ? "inset 0 0 0 1px rgba(0,0,0,0.10)" : "none",
         }}
         whileHover={{ scaleY: 1.5, scaleX: 1.08, zIndex: 10, borderRadius: "8px" }}
         transition={{ type: "spring", stiffness: 260, damping: 18 }}
@@ -126,7 +128,17 @@ function SwatchRow({ swatches, label }: { swatches: SwatchItem[]; label: string 
       <p className="font-outfit text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-[var(--muted)] mb-3">
         {label}
       </p>
-      <div className="flex w-full rounded-[10px] overflow-visible" style={{ height: "56px" }}>
+      {/* overflow-x hidden para não vazar na página, overflow-y visible para o scale */}
+      <div
+        style={{
+          display: "flex",
+          width: "100%",
+          height: "56px",
+          overflowX: "visible",
+          overflowY: "visible",
+          gap: "3px",
+        }}
+      >
         {swatches.map(s => <Swatch key={s.hex} {...s} />)}
       </div>
     </div>
@@ -162,7 +174,7 @@ export function ManualPalette() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          style={{ overflowX: "hidden", overflowY: "visible", paddingBottom: "2rem" }}
+          style={{ overflowY: "visible", paddingBottom: "2rem" }}
         >
           <SwatchRow swatches={obsidian} label="Neutros — Obsidian" />
           <SwatchRow swatches={crimson}  label="Primária — Crimson" />

@@ -9,6 +9,7 @@ import { ManualRules }       from "@/components/manual/ManualRules";
 import { ManualFavicon }     from "@/components/manual/ManualFavicon";
 import { ManualFooter }      from "@/components/manual/ManualFooter";
 import { CrimsonBar }        from "@/components/layout/CrimsonBar";
+import { ManualBackground }   from "@/components/manual/ManualBackground";
 
 export const metadata: Metadata = {
   title: "Manual de Identidade Visual — Nobilis Tecnologia",
@@ -27,6 +28,7 @@ const sections = [
 export default function ManualPage() {
   return (
     <>
+      <ManualBackground />
       <CrimsonBar />
       <ManualNav />
       <ManualHero sections={sections} />

@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import { motion } from "motion/react";
 import { Tilt } from "@/components/unlumen-ui/tilt";
 import { GlowingBadge } from "@/components/unlumen-ui/glowing-badge";
@@ -114,12 +115,12 @@ export function ManualLogo() {
           ].map((item, i) => (
             <div
               key={item.label}
-              className="border border-[var(--border)] rounded-[10px] px-4 py-3 bg-[var(--surface)]"
+              className="border border-[var(--border)] rounded-[10px] px-4 py-3 bg-[var(--surface)] shimmer-card animate"
             >
               <div className="font-cinzel font-bold text-xs tracking-wide text-[var(--foreground)] mb-1">
                 {item.label}
               </div>
-              <div className="font-outfit font-light text-[0.7rem] text-[var(--muted)] font-mono">
+              <div className="font-mono font-light text-[0.7rem] text-[var(--muted)]">
                 {item.spec}
               </div>
             </div>
