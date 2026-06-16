@@ -29,21 +29,24 @@ export function Footer() {
               Em latim, Nobilis. Em português, Nobre.
 Uma homenagem ao sobrenome do fundador.
             </p>
-            <a
-              href="/manual"
-              className="font-outfit font-light text-[0.65rem] tracking-[0.1em] uppercase text-[var(--muted-subtle)] hover:text-[var(--primary)] transition-colors duration-200 mt-1"
-            >
-              Manual de Identidade Visual ↗
-            </a>
+
           </div>
 
           <p className="text-[var(--muted)] text-xs font-light tracking-wide">
             Brasília, DF — Brasil
           </p>
 
-          <p className="text-[var(--muted)] text-xs font-light tracking-wide">
-            © 2026 Nobilis Tecnologia
-          </p>
+          <div className="flex flex-col items-center md:items-end gap-2">
+            <a
+              href="/manual"
+              className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-[var(--border)] hover:border-[var(--primary)] font-outfit font-light text-[0.62rem] tracking-[0.1em] uppercase text-[var(--muted)] hover:text-[var(--primary)] transition-all duration-200"
+            >
+              Manual de Identidade Visual ↗
+            </a>
+            <p className="text-[var(--muted)] text-xs font-light tracking-wide">
+              © 2026 Nobilis Tecnologia
+            </p>
+          </div>
 
         </div>
       </div>

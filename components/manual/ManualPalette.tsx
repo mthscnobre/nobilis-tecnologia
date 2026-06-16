@@ -2,7 +2,7 @@
 
 import { useState, useCallback } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Check, Copy } from "lucide-react";
+import { Check, Copy, Star } from "lucide-react";
 
 const obsidian = [
   { hex: "#060606", name: "900", light: false },
@@ -43,6 +43,8 @@ type SwatchItem = { hex: string; name: string; light: boolean; star?: boolean };
 
 function Swatch({ hex, name, light, star }: SwatchItem) {
   const [copied, setCopied] = useState(false);
+  const [hovered, setHovered] = useState(false);
+
   const copy = useCallback(() => {
     navigator.clipboard?.writeText(hex);
     setCopied(true);
@@ -52,59 +54,79 @@ function Swatch({ hex, name, light, star }: SwatchItem) {
   const fg = light ? "#111111" : "#FFFFFF";
 
   return (
-    <motion.div
-      title={`${hex} — clique para copiar`}
-      onClick={copy}
-      className="relative cursor-pointer"
-      style={{ flex: 1, height: "56px" }}
-      whileHover={{ scaleY: 1.2, scaleX: 1.05, zIndex: 10 }}
-      transition={{ type: "spring", stiffness: 280, damping: 20 }}
-    >
-      {/* Cor de fundo */}
-      <div
-        className="absolute inset-0"
+    <div style={{ flex: 1, position: "relative" }}>
+      {/* Tooltip com hex — fora do motion para não deformar */}
+      {hovered && (
+        <div
+          style={{
+            position: "absolute",
+            bottom: "calc(100% + 8px)",
+            left: "50%",
+            transform: "translateX(-50%)",
+            background: "#0D0D0D",
+            border: "1px solid #262626",
+            color: "#FAF7F7",
+            fontSize: "0.6rem",
+            fontFamily: "monospace",
+            fontWeight: 600,
+            padding: "3px 8px",
+            borderRadius: "4px",
+            whiteSpace: "nowrap",
+            zIndex: 50,
+            pointerEvents: "none",
+          }}
+        >
+          {hex}
+        </div>
+      )}
+
+      <motion.div
+        onClick={copy}
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
+        className="w-full cursor-pointer"
         style={{
+          height: "56px",
           background: hex,
-          outline: star ? `2px solid ${fg}` : "none",
-          outlineOffset: "-3px",
+          position: "relative",
+          borderRadius: "6px",
         }}
-      />
-
-      {/* Check ao copiar */}
-      <AnimatePresence>
-        {copied && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="absolute inset-0 flex items-center justify-center"
-            style={{ background: hex, zIndex: 2 }}
-          >
-            <Check strokeWidth={2.5} style={{ color: fg, width: 16, height: 16 }} />
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-      {/* Nome no hover */}
-      <motion.span
-        initial={{ opacity: 0 }}
-        whileHover={{ opacity: 1 }}
-        className="absolute bottom-1.5 left-0 right-0 text-center text-[9px] font-mono font-bold"
-        style={{ color: fg, zIndex: 3 }}
+        whileHover={{ scaleY: 1.5, scaleX: 1.08, zIndex: 10, borderRadius: "8px" }}
+        transition={{ type: "spring", stiffness: 260, damping: 18 }}
       >
-        {name}
-      </motion.span>
-    </motion.div>
+        {/* Estrela nos primários — não escala junto */}
+        {star && !copied && !hovered && (
+          <div className="absolute inset-0 flex items-center justify-center" style={{ opacity: 0.5 }}>
+            <Star style={{ color: fg, width: 10, height: 10 }} fill={fg} strokeWidth={0} />
+          </div>
+        )}
+
+        {/* Check ao copiar */}
+        <AnimatePresence>
+          {copied && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="absolute inset-0 flex items-center justify-center"
+              style={{ background: hex, borderRadius: "6px" }}
+            >
+              <Check strokeWidth={2.5} style={{ color: fg, width: 16, height: 16 }} />
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </motion.div>
+    </div>
   );
 }
 
 function SwatchRow({ swatches, label }: { swatches: SwatchItem[]; label: string }) {
   return (
-    <div className="mb-8">
+    <div className="mb-10">
       <p className="font-outfit text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-[var(--muted)] mb-3">
         {label}
       </p>
-      <div className="flex w-full rounded-[10px] overflow-hidden" style={{ height: "56px" }}>
+      <div className="flex w-full rounded-[10px] overflow-visible" style={{ height: "56px" }}>
         {swatches.map(s => <Swatch key={s.hex} {...s} />)}
       </div>
     </div>
@@ -134,11 +156,13 @@ export function ManualPalette() {
           </p>
         </motion.div>
 
+        {/* Swatches com overflow-visible para o scale não ser cortado */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.1 }}
+          style={{ overflowX: "hidden", overflowY: "visible", paddingBottom: "2rem" }}
         >
           <SwatchRow swatches={obsidian} label="Neutros — Obsidian" />
           <SwatchRow swatches={crimson}  label="Primária — Crimson" />
@@ -150,7 +174,7 @@ export function ManualPalette() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="mt-4 border border-[var(--border)] rounded-[14px] overflow-hidden"
+          className="border border-[var(--border)] rounded-[14px] overflow-hidden"
         >
           <div className="grid grid-cols-3 bg-[var(--surface)] px-4 py-2.5 border-b border-[var(--border)]">
             {["Token", "Hex", "Uso principal"].map(h => (

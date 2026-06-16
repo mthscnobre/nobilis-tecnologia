@@ -36,7 +36,39 @@ function KineticText({ text, className }: { text: string; className?: string }) 
   );
 }
 
-// Contador de peso de fonte — slider interativo
+// Slider Cinzel — variable font de 400 a 900
+function CinzelSlider() {
+  const [weight, setWeight] = useState(700);
+  return (
+    <div>
+      <div className="flex items-center justify-between mb-3">
+        <span className="font-outfit text-[0.65rem] text-[var(--muted)] uppercase tracking-[0.1em]">
+          Peso da Fonte
+        </span>
+        <span className="font-mono text-[0.75rem] text-[var(--primary)]">{weight}</span>
+      </div>
+      <input
+        type="range" min={400} max={900} step={100} value={weight}
+        onChange={e => setWeight(Number(e.target.value))}
+        className="w-full accent-[#C0392B] cursor-pointer"
+      />
+      <div
+        className="mt-4 text-[2rem] text-[var(--foreground)] tracking-[0.08em] transition-all duration-300 leading-tight"
+        style={{ fontFamily: "var(--font-cinzel), serif", fontWeight: weight }}
+      >
+        NOBILIS TECNOLOGIA
+      </div>
+      <div
+        className="text-[0.875rem] text-[var(--muted)] tracking-[0.14em] uppercase mt-2 transition-all duration-300"
+        style={{ fontFamily: "var(--font-cinzel), serif", fontWeight: weight }}
+      >
+        Desenvolvimento · Consultoria · Sistemas
+      </div>
+    </div>
+  );
+}
+
+// Slider Outfit — peso interativo
 function WeightSlider() {
   const [weight, setWeight] = useState(400);
 
@@ -134,6 +166,11 @@ export function ManualTypography() {
             H1 · Peso 700 · Tamanho mínimo 24px · Sempre uppercase no logotipo<br />
             H2 · Peso 600 · Títulos de seção e cabeçalhos<br />
             H3 · Peso 400 · Labels, subtítulos, chamadas uppercase
+          </div>
+
+          {/* Slider Cinzel */}
+          <div className="p-6 rounded-[12px] bg-[var(--surface-2,#1E1E1E)] border border-[var(--border)] mt-4">
+            <CinzelSlider />
           </div>
         </motion.div>
 

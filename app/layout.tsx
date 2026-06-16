@@ -3,6 +3,7 @@ import { cinzel, outfit } from "@/lib/fonts";
 import { ThemeProvider } from "@/providers/theme-provider";
 import { Navbar } from "@/components/layout/Navbar";
 import { ScrollTopButton } from "@/components/layout/ScrollTopButton";
+import { NavbarWrapper } from "@/components/layout/NavbarWrapper";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -31,7 +32,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="font-outfit antialiased overflow-x-hidden">
         <ThemeProvider>
           <div className="relative z-10">
-            <Navbar />
+            <NavbarWrapper />
             {children}
           </div>
           <ScrollTopButton />
