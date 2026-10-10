@@ -37,7 +37,7 @@ function CountUp({ value, prefix = "", suffix = "" }: StatItem) {
   }, [inView, value]);
 
   return (
-    <span ref={ref} className="font-cinzel font-bold text-4xl md:text-5xl text-[var(--foreground)]">
+    <span ref={ref} className="font-bricolage font-bold text-4xl md:text-5xl text-[var(--foreground)]">
       {prefix}{display}{suffix}
     </span>
   );
@@ -58,7 +58,7 @@ export function Stats() {
               className="flex flex-col items-center text-center gap-2"
             >
               <CountUp {...stat} />
-              <span className="font-outfit font-light text-[0.8rem] tracking-wide text-[var(--muted)] uppercase">
+              <span className="font-bricolage font-light text-[0.8rem] tracking-wide text-[var(--muted)] uppercase">
                 {stat.label}
               </span>
             </motion.div>

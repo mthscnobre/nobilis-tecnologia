@@ -35,7 +35,7 @@ export function Approach() {
           className="text-center mb-16"
         >
           <span className="eyebrow mb-3">Princípios</span>
-          <h2 className="font-cinzel font-bold text-2xl md:text-3xl text-[var(--foreground)] tracking-[0.08em] uppercase">
+          <h2 className="font-bricolage font-bold text-2xl md:text-3xl text-[var(--foreground)] tracking-[0.08em] uppercase">
             Como trabalhamos
           </h2>
         </motion.div>
@@ -50,14 +50,14 @@ export function Approach() {
               transition={{ duration: 0.5, delay: i * 0.12 }}
               className="pillar-card"
             >
-              <span className="font-cinzel text-[var(--primary)] text-xs tracking-[0.2em] block mb-3">
+              <span className="font-bricolage text-[var(--primary)] text-xs tracking-[0.2em] block mb-3">
                 {pillar.number}
               </span>
-              <h3 className="font-cinzel font-semibold text-[var(--foreground)] text-base tracking-[0.04em] mb-3 uppercase">
+              <h3 className="font-bricolage font-semibold text-[var(--foreground)] text-base tracking-[0.04em] mb-3 uppercase">
                 {pillar.title}
               </h3>
               {/* Texto justificado conforme solicitado */}
-              <p className="font-outfit font-light text-[0.875rem] text-[var(--muted)] leading-[1.7] text-justify">
+              <p className="font-bricolage font-light text-[0.875rem] text-[var(--muted)] leading-[1.7] text-justify">
                 {pillar.description}
               </p>
             </motion.div>

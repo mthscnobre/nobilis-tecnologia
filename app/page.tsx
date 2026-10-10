@@ -2,6 +2,7 @@ import { CrimsonBar } from "@/components/layout/CrimsonBar";
 import { Footer } from "@/components/layout/Footer";
 import { Hero } from "@/components/sections/Hero";
 import { Stats } from "@/components/sections/Stats";
+import { AI } from "@/components/sections/AI";
 import { Services } from "@/components/sections/Services";
 import { Approach } from "@/components/sections/Approach";
 import { TechMarquee } from "@/components/sections/TechMarquee";
@@ -19,6 +20,12 @@ export default function Home() {
       </div>
 
       <Stats />
+
+      <div className="max-w-5xl mx-auto px-6">
+        <div className="h-px bg-[var(--border)] opacity-40" />
+      </div>
+
+      <AI />
 
       <div className="max-w-5xl mx-auto px-6">
         <div className="h-px bg-[var(--border)] opacity-40" />

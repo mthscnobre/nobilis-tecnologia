@@ -19,14 +19,14 @@ export function ManualHero({ sections }: { sections: Section[] }) {
         transition={{ delay: 0.2, duration: 0.5 }}
       >
         <ScrambleText
-          text="IDENTIDADE VISUAL · V1.0 · 2026"
+          text="IDENTIDADE VISUAL · V1.1 · 2026"
           autoStart
           delay={400}
           scrambleSpeed={35}
           scrambledLetterCount={3}
           characters="ABCDEFGHIJKLMNOPQRSTUVWXYZ·"
-          className="text-[var(--primary)] font-cinzel text-[0.65rem] tracking-[0.3em]"
-          scrambledClassName="text-[var(--muted-subtle)] font-cinzel text-[0.65rem] tracking-[0.3em]"
+          className="text-[var(--primary)] font-bricolage text-[0.65rem] tracking-[0.3em]"
+          scrambledClassName="text-[var(--muted-subtle)] font-bricolage text-[0.65rem] tracking-[0.3em]"
         />
       </motion.div>
 
@@ -54,7 +54,7 @@ export function ManualHero({ sections }: { sections: Section[] }) {
           staggerDelay={0.04}
           duration={0.5}
           once
-          className="font-outfit font-light text-sm md:text-base leading-relaxed text-[var(--muted)]"
+          className="font-bricolage font-light text-sm md:text-base leading-relaxed text-[var(--muted)]"
         />
       </div>
 
@@ -74,7 +74,7 @@ export function ManualHero({ sections }: { sections: Section[] }) {
           >
             <Link
               href={`#${s.id}`}
-              className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full border border-[var(--border)] text-[0.65rem] font-outfit tracking-[0.1em] uppercase text-[var(--muted)] hover:text-[var(--primary)] hover:border-[var(--primary)] transition-all duration-200"
+              className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full border border-[var(--border)] text-[0.65rem] font-bricolage tracking-[0.1em] uppercase text-[var(--muted)] hover:text-[var(--primary)] hover:border-[var(--primary)] transition-all duration-200"
             >
               <span className="text-[var(--primary)] opacity-60">0{sections.indexOf(s) + 1}</span>
               {s.label}

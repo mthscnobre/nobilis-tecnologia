@@ -241,12 +241,12 @@ export function TechMarquee() {
 
   return (
     <FloatingTooltip.Provider
-      className="font-cinzel tracking-[0.12em] text-xs uppercase bg-[var(--primary)] text-[var(--primary-fg)]"
+      className="font-bricolage tracking-[0.12em] text-xs uppercase bg-[var(--primary)] text-[var(--primary-fg)]"
     >
     <section className="py-16">
       <div className="max-w-5xl mx-auto px-6 mb-10 text-center">
         <span className="eyebrow mb-3">Stack & Infraestrutura</span>
-        <h2 className="font-cinzel font-bold text-2xl md:text-3xl text-[var(--foreground)] tracking-[0.08em] uppercase">
+        <h2 className="font-bricolage font-bold text-2xl md:text-3xl text-[var(--foreground)] tracking-[0.08em] uppercase">
           Tecnologias
         </h2>
       </div>

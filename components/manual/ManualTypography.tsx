@@ -8,10 +8,10 @@ const typeTable = [
   { elem: "Logo NOBILIS",               font: "Cinzel", weight: "700", size: "variável",  spacing: "0.1em"  },
   { elem: "TECNOLOGIA (hero/capa)",     font: "Cinzel", weight: "400", size: "13px+",     spacing: "0.3em"  },
   { elem: "TECNOLOGIA (navbar/footer)", font: "Cinzel", weight: "400", size: "10px",      spacing: "0.26em" },
-  { elem: "Títulos de seção",           font: "Cinzel", weight: "700", size: "24–36px",   spacing: "0.08em" },
-  { elem: "Eyebrow / label",            font: "Outfit", weight: "500", size: "11px",      spacing: "0.22em" },
-  { elem: "Corpo de texto",             font: "Outfit", weight: "300–400", size: "15–16px", spacing: "normal" },
-  { elem: "Botões / UI",                font: "Outfit", weight: "500", size: "12–13px",   spacing: "0.1em"  },
+  { elem: "Títulos de seção",           font: "Bricolage Grotesque", weight: "600–700", size: "24–36px",   spacing: "0.08em" },
+  { elem: "Eyebrow / label",            font: "Bricolage Grotesque", weight: "500", size: "11px",      spacing: "0.22em" },
+  { elem: "Corpo de texto",             font: "Bricolage Grotesque", weight: "300–400", size: "15–16px", spacing: "normal" },
+  { elem: "Botões / UI",                font: "Bricolage Grotesque", weight: "500", size: "12–13px",   spacing: "0.1em"  },
 ];
 
 // Kinetic text — letras animam individualmente ao entrar na viewport
@@ -42,7 +42,7 @@ function CinzelSlider() {
   return (
     <div>
       <div className="flex items-center justify-between mb-3">
-        <span className="font-outfit text-[0.65rem] text-[var(--muted)] uppercase tracking-[0.1em]">
+        <span className="font-bricolage text-[0.65rem] text-[var(--muted)] uppercase tracking-[0.1em]">
           Peso da Fonte
         </span>
         <span className="font-mono text-[0.75rem] text-[var(--primary)]">{weight}</span>
@@ -62,42 +62,42 @@ function CinzelSlider() {
         className="text-[0.875rem] text-[var(--muted)] tracking-[0.14em] uppercase mt-2 transition-all duration-300"
         style={{ fontFamily: "var(--font-cinzel), serif", fontWeight: weight }}
       >
-        Desenvolvimento · Consultoria · Sistemas
+        TECNOLOGIA
       </div>
     </div>
   );
 }
 
-// Slider Outfit — peso interativo
+// Slider Bricolage Grotesque — peso interativo
 function WeightSlider() {
   const [weight, setWeight] = useState(400);
 
   return (
     <div className="p-6 rounded-[12px] bg-[var(--surface-2,#1E1E1E)] border border-[var(--border)] mt-4">
       <div className="flex items-center justify-between mb-3">
-        <span className="font-outfit text-[0.65rem] text-[var(--muted)] uppercase tracking-[0.1em]">
+        <span className="font-bricolage text-[0.65rem] text-[var(--muted)] uppercase tracking-[0.1em]">
           Peso da Fonte
         </span>
         <span className="font-mono text-[0.75rem] text-[var(--primary)]">{weight}</span>
       </div>
       <input
         type="range"
-        min={300}
-        max={900}
+        min={200}
+        max={800}
         step={100}
         value={weight}
         onChange={e => setWeight(Number(e.target.value))}
         className="w-full accent-[#C0392B] cursor-pointer"
       />
       <div
-        className="mt-4 font-cinzel text-[2rem] text-[var(--foreground)] tracking-[0.08em] transition-all duration-300"
+        className="mt-4 font-bricolage text-[2rem] text-[var(--foreground)] tracking-[0.08em] transition-all duration-300"
         style={{ fontWeight: weight, lineHeight: 1.1 }}
       >
-        NOBILIS TECNOLOGIA
+        Tecnologia que funciona. IA que faz parte da operação.
       </div>
-      <p className="font-outfit font-light text-[0.75rem] text-[var(--muted)] mt-2 transition-all duration-300"
+      <p className="font-bricolage font-light text-[0.75rem] text-[var(--muted)] mt-2 transition-all duration-300"
          style={{ fontWeight: weight }}>
-        Outfit {weight} — corpo de texto, UI e comunicação
+        Bricolage Grotesque {weight} — títulos, corpo de texto e UI
       </p>
     </div>
   );
@@ -119,7 +119,7 @@ export function ManualTypography() {
           className="text-center mb-14"
         >
           <span className="eyebrow mb-3">03</span>
-          <h2 className="font-cinzel font-bold text-2xl md:text-3xl text-[var(--foreground)] tracking-[0.08em] uppercase">
+          <h2 className="font-bricolage font-bold text-2xl md:text-3xl text-[var(--foreground)] tracking-[0.08em] uppercase">
             Tipografia
           </h2>
         </motion.div>
@@ -134,15 +134,15 @@ export function ManualTypography() {
         >
           <div className="absolute top-0 left-0 right-0 h-[2px] bg-[var(--primary)]" />
           <div className="flex items-center justify-between mb-5">
-            <span className="font-outfit text-[0.65rem] text-[var(--muted)] tracking-[0.12em] uppercase">
-              Cinzel — Logotipo, títulos, destaques de marca
+            <span className="font-bricolage text-[0.65rem] text-[var(--muted)] tracking-[0.12em] uppercase">
+              Cinzel — Logotipo e assinatura da marca
             </span>
             <div className="flex items-center gap-3">
-              <a href="/Cinzel.zip" download className="font-outfit text-[0.65rem] text-[var(--muted)] hover:text-[var(--primary)] transition-colors">
+              <a href="/Cinzel.zip" download className="font-bricolage text-[0.65rem] text-[var(--muted)] hover:text-[var(--primary)] transition-colors">
                 Download ↓
               </a>
               <a href="https://fonts.google.com/specimen/Cinzel?preview.script=Latn" target="_blank" rel="noopener"
-                className="font-outfit text-[0.65rem] text-[var(--primary)] hover:text-[var(--primary-hover)] transition-colors flex items-center gap-1">
+                className="font-bricolage text-[0.65rem] text-[var(--primary)] hover:text-[var(--primary-hover)] transition-colors flex items-center gap-1">
                 Google Fonts <ExternalLink className="w-3 h-3" strokeWidth={1.5} />
               </a>
             </div>
@@ -151,21 +151,21 @@ export function ManualTypography() {
           {/* Kinetic heading */}
           <KineticText
             text="NOBILIS TECNOLOGIA"
-            className="font-cinzel font-bold text-[2.5rem] text-[var(--foreground)] tracking-[0.06em] leading-tight overflow-hidden"
+            className="font-cinzel font-bold text-[clamp(1.35rem,5vw,2.5rem)] text-[var(--foreground)] tracking-[0.06em] leading-tight overflow-hidden"
           />
           <KineticText
             text="Soluções em Tecnologia"
-            className="font-cinzel font-semibold text-[1.5rem] text-[var(--foreground)] tracking-[0.08em] mt-2 overflow-hidden"
+            className="font-bricolage font-semibold text-[clamp(1rem,3vw,1.5rem)] text-[var(--foreground)] tracking-[0.08em] mt-2 overflow-hidden"
           />
           <KineticText
-            text="DESENVOLVIMENTO · CONSULTORIA · SISTEMAS"
-            className="font-cinzel font-normal text-[0.8rem] text-[var(--muted)] tracking-[0.14em] uppercase mt-2 overflow-hidden"
+            text="IA · DESENVOLVIMENTO · CONSULTORIA · SISTEMAS"
+            className="font-bricolage font-normal text-[0.8rem] text-[var(--muted)] tracking-[0.14em] uppercase mt-2 overflow-hidden"
           />
 
-          <div className="text-[0.7rem] text-[var(--muted)] mt-5 pt-3 border-t border-[var(--border)] leading-[1.9] font-outfit">
-            H1 · Peso 700 · Tamanho mínimo 24px · Sempre uppercase no logotipo<br />
-            H2 · Peso 600 · Títulos de seção e cabeçalhos<br />
-            H3 · Peso 400 · Labels, subtítulos, chamadas uppercase
+          <div className="text-[0.7rem] text-[var(--muted)] mt-5 pt-3 border-t border-[var(--border)] leading-[1.9] font-bricolage">
+            Logotipo · Peso 700 · Tamanho mínimo 24px · Sempre uppercase<br />
+            Assinatura TECNOLOGIA · Peso 400 · Tracking 0.26–0.3em<br />
+            Títulos, subtítulos e interface usam Bricolage Grotesque
           </div>
 
           {/* Slider Cinzel */}
@@ -174,7 +174,7 @@ export function ManualTypography() {
           </div>
         </motion.div>
 
-        {/* Card Outfit — Slider de peso interativo */}
+        {/* Card Bricolage Grotesque — Slider de peso interativo */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -184,25 +184,25 @@ export function ManualTypography() {
         >
           <div className="absolute top-0 left-0 right-0 h-[2px] bg-[var(--primary)]" />
           <div className="flex items-center justify-between mb-5">
-            <span className="font-outfit text-[0.65rem] text-[var(--muted)] tracking-[0.12em] uppercase">
-              Outfit — Corpo de texto, interface, comunicação
+            <span className="font-bricolage text-[0.65rem] text-[var(--muted)] tracking-[0.12em] uppercase">
+              Bricolage Grotesque — Títulos, corpo de texto e interface
             </span>
             <div className="flex items-center gap-3">
-              <a href="/Outfit.zip" download className="font-outfit text-[0.65rem] text-[var(--muted)] hover:text-[var(--primary)] transition-colors">
+              <a href="/BricolageGrotesque.zip" download className="font-bricolage text-[0.65rem] text-[var(--muted)] hover:text-[var(--primary)] transition-colors">
                 Download ↓
               </a>
-              <a href="https://fonts.google.com/specimen/Outfit?preview.script=Latn" target="_blank" rel="noopener"
-                className="font-outfit text-[0.65rem] text-[var(--primary)] hover:text-[var(--primary-hover)] transition-colors flex items-center gap-1">
+              <a href="https://fonts.google.com/specimen/Bricolage+Grotesque?preview.script=Latn" target="_blank" rel="noopener"
+                className="font-bricolage text-[0.65rem] text-[var(--primary)] hover:text-[var(--primary-hover)] transition-colors flex items-center gap-1">
                 Google Fonts <ExternalLink className="w-3 h-3" strokeWidth={1.5} />
               </a>
             </div>
           </div>
 
-          <p className="font-outfit font-normal text-[0.95rem] text-[var(--muted)] leading-[1.7]">
-            A Nobilis Tecnologia desenvolve sistemas sob medida para empresas que buscam
+          <p className="font-bricolage font-normal text-[0.95rem] text-[var(--muted)] leading-[1.7]">
+            A Nobilis Tecnologia implementa IA e desenvolve soluções personalizadas para empresas que buscam
             eficiência, controle e excelência em seus processos digitais.
           </p>
-          <div className="font-outfit font-medium text-[0.8rem] text-[var(--foreground)] tracking-[0.04em] mt-3">
+          <div className="font-bricolage font-medium text-[0.8rem] text-[var(--foreground)] tracking-[0.04em] mt-3">
             Dashboard · Relatórios · Exportar · Configurações · Suporte
           </div>
 
@@ -220,7 +220,7 @@ export function ManualTypography() {
         >
           <div className="grid grid-cols-5 bg-[var(--surface)] px-4 py-2.5 border-b border-[var(--border)]">
             {["Elemento", "Fonte", "Peso", "Tamanho", "Tracking"].map(h => (
-              <span key={h} className="font-outfit text-[0.65rem] uppercase tracking-[0.08em] text-[var(--muted)] font-semibold">{h}</span>
+              <span key={h} className="font-bricolage text-[0.65rem] uppercase tracking-[0.08em] text-[var(--muted)] font-semibold">{h}</span>
             ))}
           </div>
           {typeTable.map((row, i) => (
@@ -235,7 +235,7 @@ export function ManualTypography() {
               className="grid grid-cols-5 px-4 py-3 border-b border-[var(--border)] last:border-0 transition-colors cursor-default"
               style={{ background: activeRow === i ? "var(--surface)" : "transparent" }}
             >
-              <span className="font-outfit font-light text-[0.75rem] text-[var(--foreground)]">{row.elem}</span>
+              <span className="font-bricolage font-light text-[0.75rem] text-[var(--foreground)]">{row.elem}</span>
               <motion.span
                 className="font-mono text-[0.75rem] text-[var(--primary)]"
                 animate={{ x: activeRow === i ? 4 : 0 }}

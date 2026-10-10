@@ -2,9 +2,16 @@
 
 import { motion } from "motion/react";
 import { ServiceCard } from "./ServiceCard";
-import { Code2, Monitor, Server, Globe, Settings } from "lucide-react";
+import { Code2, Monitor, Server, Globe, Settings, Sparkles } from "lucide-react";
 
 const services = [
+  {
+    icon: <Sparkles className="w-full h-full" strokeWidth={1.5} />,
+    title: "Implementação de IA & soluções personalizadas",
+    description: "Identificação de oportunidades, implementação de IA nos processos da empresa e desenvolvimento de soluções sob medida, integradas à rotina da equipe.",
+    tag: "IA",
+    delay: 0,
+  },
   {
     icon: <Code2 className="w-full h-full" strokeWidth={1.5} />,
     title: "Desenvolvimento de Software & SaaS",
@@ -54,9 +61,12 @@ export function Services() {
           className="text-center mb-14"
         >
           <span className="eyebrow mb-3">O que fazemos</span>
-          <h2 className="font-cinzel font-bold text-2xl md:text-3xl text-[var(--foreground)] tracking-[0.08em] uppercase">
+          <h2 className="font-bricolage font-bold text-2xl md:text-3xl text-[var(--foreground)] tracking-[0.08em] uppercase">
             Serviços
           </h2>
+          <p className="mt-4 font-bricolage font-light text-sm text-[var(--muted)] leading-relaxed">
+            Sistemas, consultoria e infraestrutura para empresas que precisam de tecnologia que funciona.
+          </p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">

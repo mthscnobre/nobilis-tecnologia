@@ -53,12 +53,12 @@ export function ServiceCard({
         </div>
 
         {/* Título */}
-        <div className="font-outfit font-medium text-[0.95rem] tracking-[0.02em] text-[var(--foreground)] mb-3 leading-snug">
+        <div className="font-bricolage font-medium text-[0.95rem] tracking-[0.02em] text-[var(--foreground)] mb-3 leading-snug">
           {title}
         </div>
 
         {/* Descrição — maior e justificada */}
-        <p className="font-outfit font-light text-[0.9rem] text-[var(--muted)] leading-[1.7] text-justify">
+        <p className="font-bricolage font-light text-[0.9rem] text-[var(--muted)] leading-[1.7] text-justify">
           {description}
         </p>
       </Tilt>

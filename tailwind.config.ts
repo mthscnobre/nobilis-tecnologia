@@ -9,7 +9,7 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      // ── PALETA NOBILIS (Manual de Identidade Visual v1.0) ──
+      // ── PALETA NOBILIS (Manual de Identidade Visual v1.1) ──
       colors: {
         // Neutros — Obsidian
         obsidian: {
@@ -53,10 +53,10 @@ const config: Config = {
           light:   "#FDF0EE",
         },
       },
-      // ── TIPOGRAFIA (Manual — Cinzel + Outfit) ──
+      // ── TIPOGRAFIA (Manual — Cinzel + Bricolage Grotesque) ──
       fontFamily: {
         cinzel: ["var(--font-cinzel)", "serif"],
-        outfit: ["var(--font-outfit)", "sans-serif"],
+        bricolage: ["var(--font-bricolage)", "sans-serif"],
       },
       // ── LETTERING ──
       letterSpacing: {
@@ -64,9 +64,9 @@ const config: Config = {
         "cinzel-sub":     "0.28em",
         "cinzel-h2":      "0.08em",
         "cinzel-label":   "0.14em",
-        "outfit-ui":      "0.04em",
-        "outfit-eyebrow": "0.22em",
-        "outfit-btn":     "0.10em",
+        "bricolage-ui":      "0.04em",
+        "bricolage-eyebrow": "0.22em",
+        "bricolage-btn":     "0.10em",
       },
       // ── BORDER RADIUS ──
       borderRadius: {
