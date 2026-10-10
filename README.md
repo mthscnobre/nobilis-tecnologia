@@ -48,11 +48,30 @@ Verificações realizadas na atualização visual de 2026-10-10:
 | Temas | Primeira visita e recarga após escolha | Claro inicial; preferência preservada |
 | Download da fonte | HTTP e conteúdo do ZIP | Fonte e licença disponíveis |
 
-O build com Webpack foi utilizado porque o ambiente local recorre ao SWC em WASM, sem suporte ao Turbopack. O modo de desenvolvimento apresentou erro de chunk, não reproduzido no servidor local de produção. `npm run lint` ainda executa `next lint`, comando indisponível na versão instalada; o script precisa ser atualizado. Não há framework de testes ou workflow de CI versionado.
+O build com Webpack foi utilizado porque o ambiente local recorre ao SWC em WASM, sem suporte ao Turbopack. O modo de desenvolvimento apresentou erro de chunk, não reproduzido no servidor local de produção. `npm run lint` ainda executa `next lint`, comando indisponível na versão instalada; o script precisa ser atualizado. A rota de contato possui testes com o runner nativo do Node.js em `tests/contact-route.test.cjs`; não há workflow de CI versionado.
 
 ## Estado do contato
 
-`app/api/contact/route.ts` valida o payload, registra os dados no console e retorna sucesso. **Ainda não envia e-mail nem persiste mensagens.** Resend e SMTP aparecem apenas como sugestões comentadas. `components/sections/Contact.tsx` mostra confirmação após HTTP 200; erros ficam no console. O e-mail da empresa está hospedado em um home server com Mailu, conforme informado pelo responsável. A integração SMTP do formulário ainda não foi implementada; host, porta, TLS e acesso externo precisam ser confirmados.
+`app/api/contact/route.ts` valida o payload e envia uma mensagem de texto pelo SMTP autenticado do Mailu com Nodemailer, na porta 465 com TLS e validação do certificado. O remetente e destinatário são `contato@nobilistecnologia.com.br`; `Reply-To` usa o endereço do visitante. O formulário só confirma sucesso depois da aceitação pelo servidor SMTP; isso não garante entrega na caixa de entrada. As mensagens não são persistidas no site.
+
+`components/sections/Contact.tsx` exibe erros de validação, indisponibilidade e rede, mantendo os campos para nova tentativa. O servidor não registra conteúdo das mensagens nem credenciais.
+
+Configurar em **Vercel → Project → Settings → Environment Variables**, no ambiente de produção (e em preview, se desejar testar ali):
+
+| Variável | Valor |
+|---|---|
+| `SMTP_HOST` | `mail.nobilistecnologia.com.br` |
+| `SMTP_PORT` | `465` |
+| `SMTP_USER` | `contato@nobilistecnologia.com.br` |
+| `SMTP_PASS` | Senha da conta, cadastrada diretamente na Vercel |
+| `SMTP_FROM` | `contato@nobilistecnologia.com.br` |
+| `SMTP_TO` | `contato@nobilistecnologia.com.br` |
+
+As variáveis SMTP não usam prefixo `NEXT_PUBLIC_`. O arquivo `.env.example` contém apenas valores de referência e senha vazia; para uso local, copiar os valores para `.env.local`, ignorado pelo Git. Após configurar as variáveis na Vercel, fazer um novo deploy.
+
+Respostas da API: `400` para payload inválido; `503` para configuração ausente/inválida; `502` para falha de envio; `200` após aceitação pelo SMTP. A rota exige runtime Node.js. Em 2026-10-10, a conexão externa com `mail.nobilistecnologia.com.br:465` respondeu com saudação SMTP `220`, usando TLS 1.3 e certificado válido para o host. Isso não verifica o acesso a partir da Vercel. A autenticação e a entrega real ainda precisam ser verificadas com as credenciais no ambiente de deploy.
+
+Testes da rota sem envio externo: `node --test tests/contact-route.test.cjs`.
 
 ## Estrutura
 
@@ -111,7 +130,7 @@ Referências executáveis: `app/globals.css`, `tailwind.config.ts`, `lib/fonts.t
 
 ## Deploy
 
-O site está publicado na **Vercel**, conforme confirmação do responsável em 2026-10-10, acompanhada de capturas da página inicial e da seção de IA em produção. A entrega de mensagens pelo formulário permanece pendente.
+O site está publicado na **Vercel**, conforme confirmação do responsável em 2026-10-10, acompanhada de capturas da página inicial e da seção de IA em produção. A integração SMTP está implementada; ativação e entrega real dependem das variáveis de ambiente e de verificação após o deploy.
 
 Configurar `NEXT_PUBLIC_BRANDFETCH_CLIENT_ID` no ambiente de deploy quando necessário para o carrossel. O projeto utiliza execução no servidor para API e middleware; não é apenas uma exportação estática. `next.config.ts` contém headers e CSP globais; o redirect de `www` para o domínio principal permanece comentado.
 

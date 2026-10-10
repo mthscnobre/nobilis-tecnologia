@@ -52,9 +52,12 @@ function FloatingTextarea({
 export function Contact() {
   const [sent, setSent] = useState(false);
   const [sending, setSending] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    if (sending) return;
+    setError(null);
     setSending(true);
 
     const form = e.target as HTMLFormElement;
@@ -77,11 +80,15 @@ export function Contact() {
         form.reset();
         setTimeout(() => setSent(false), 6000);
       } else {
-        // Erro da API — mantém o formulário aberto para o usuário tentar de novo
-        console.error("[contact] Erro ao enviar:", await res.json());
+        const response = await res.json().catch(() => null);
+        setError(
+          typeof response?.error === "string"
+            ? response.error
+            : "Não foi possível enviar a mensagem. Tente novamente ou use o e-mail abaixo."
+        );
       }
     } catch {
-      console.error("[contact] Erro de rede.");
+      setError("Não foi possível conectar. Confira sua conexão e tente novamente ou use o e-mail abaixo.");
     } finally {
       setSending(false);
     }
@@ -132,12 +139,15 @@ export function Contact() {
                   <FloatingInput
                     label="Nome"
                     id="nome"
+                    minLength={2}
+                    maxLength={200}
                     type="text"
                     required
                   />
                   <FloatingInput
                     label="E-mail"
                     id="email"
+                    maxLength={254}
                     type="email"
                     required
                   />
@@ -147,6 +157,7 @@ export function Contact() {
                 <FloatingInput
                   label="Empresa (opcional)"
                   id="empresa"
+                  maxLength={200}
                   type="text"
                 />
 
@@ -154,8 +165,16 @@ export function Contact() {
                 <FloatingTextarea
                   label="Mensagem"
                   id="mensagem"
+                  minLength={5}
+                  maxLength={2000}
                   required
                 />
+
+                {error && (
+                  <p role="alert" className="font-bricolage text-sm leading-relaxed text-[var(--primary)]">
+                    {error}
+                  </p>
+                )}
 
                 <MagneticButton
                   type="submit"
