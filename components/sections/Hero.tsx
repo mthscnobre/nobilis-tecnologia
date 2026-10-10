@@ -22,15 +22,27 @@ export function Hero() {
 
       {/* Tagline */}
       <div className="mt-8 max-w-2xl">
-        <TextReveal
-          text="Tecnologia que funciona. IA que faz parte da operação."
-          as="h1"
-          splitBy="words"
-          staggerDelay={0.04}
-          duration={0.5}
-          once
-          className="font-bricolage font-semibold text-2xl md:text-3xl leading-relaxed text-[var(--muted)]"
-        />
+        <h1 className="font-bricolage font-semibold text-2xl md:text-3xl leading-relaxed text-[var(--muted)]">
+          <TextReveal
+            text="Tecnologia que funciona."
+            as="span"
+            splitBy="words"
+            staggerDelay={0.04}
+            duration={0.5}
+            once
+            className="block"
+          />
+          {" "}
+          <TextReveal
+            text="IA que faz parte da operação."
+            as="span"
+            splitBy="words"
+            staggerDelay={0.04}
+            duration={0.5}
+            once
+            className="block"
+          />
+        </h1>
         <p className="mt-5 font-bricolage font-normal text-base leading-relaxed text-[var(--muted)]">
           Implementação de IA e desenvolvimento de soluções personalizadas, com a experiência de quem também constrói sistemas e cuida da infraestrutura.
         </p>

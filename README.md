@@ -1,107 +1,136 @@
 # Nobilis Tecnologia — Web
 
-Site institucional da Nobilis Tecnologia.
+Site institucional da Nobilis Tecnologia, com foco em implementação de IA em empresas e desenvolvimento de soluções personalizadas, mantendo a apresentação dos demais serviços de tecnologia. Conta com landing page em `/` e manual interativo de identidade visual em `/manual`. Implementação em `app/page.tsx` e `app/manual/page.tsx`.
 
 ## Stack
 
-- **Next.js 16.2.7** (App Router, Turbopack padrão)
-- **TypeScript**
-- **Tailwind CSS** — tokens do Manual de Identidade Visual
-- **shadcn/ui** — componentes base (Button, Input, Label)
-- **Unlumen UI** — componentes visuais premium via shadcn CLI
-- **Watermelon UI** — componentes e blocos premium via shadcn CLI
-- **Framer Motion** — animações
-- **next/font** — Cinzel + Outfit otimizadas (sem FOUT)
+Versões resolvidas em `package-lock.json`, conferidas em 2026-10-10:
 
-> **Node.js 20+ obrigatório** (requisito do Next.js 16)
+- Next.js **16.2.9**, App Router; React e React DOM **19.2.7**.
+- TypeScript **5.9.3**; Tailwind CSS **3.4.19**.
+- motion e framer-motion **11.18.2**; next-themes **0.4.6**.
+- Componentes locais shadcn em `components/ui/` e Unlumen em `components/unlumen-ui/`.
+- Fontes Cinzel e Bricolage Grotesque via `next/font/google` em `lib/fonts.ts`.
+
+`package.json` declara intervalos, incluindo Next `^16.2.7`. Usar **Node compatível com >=20.9.0**, requisito do Next instalado. A declaração `>=20.0.0` do projeto ainda precisa ser alinhada.
 
 ## Setup
 
 ```bash
-# Instalar dependências
-npm install
-
-# Rodar em desenvolvimento (Turbopack por padrão no Next.js 16)
+npm ci
 npm run dev
+```
 
-# Build de produção
+Para os logos do carrossel, configurar o identificador público em `.env.local`:
+
+```dotenv
+NEXT_PUBLIC_BRANDFETCH_CLIENT_ID=your_public_client_id
+```
+
+`components/sections/TechMarquee.tsx` usa esse valor em URLs Brandfetch, com fallback vazio; algumas URLs possuem identificador literal próprio. O funcionamento externo não foi verificado nesta documentação. Não colocar credenciais privadas nessa variável pública.
+
+```bash
+# Checagem de tipos sem gerar cache incremental
+./node_modules/.bin/tsc --noEmit --incremental false
+
+# Produção local
 npm run build
+npm run start
 ```
 
-## Adicionar componentes
+Verificações realizadas na atualização visual de 2026-10-10:
 
-### shadcn/ui
-```bash
-npx shadcn@latest add <componente>
-# ex: npx shadcn@latest add dialog
-```
+| Cenário | Verificação | Resultado |
+|---|---|---|
+| TypeScript | `./node_modules/.bin/tsc --noEmit --incremental false` | Aprovado |
+| Build de produção | `npm run build -- --webpack` | Aprovado |
+| Landing page, seção de IA e manual | Navegador em desktop e celular, servidor local de produção | Renderização conferida |
+| Temas | Primeira visita e recarga após escolha | Claro inicial; preferência preservada |
+| Download da fonte | HTTP e conteúdo do ZIP | Fonte e licença disponíveis |
 
-### Unlumen UI
-```bash
-npx shadcn add https://ui.unlumen.com/r/<componente>.json
-```
+O build com Webpack foi utilizado porque o ambiente local recorre ao SWC em WASM, sem suporte ao Turbopack. O modo de desenvolvimento apresentou erro de chunk, não reproduzido no servidor local de produção. `npm run lint` ainda executa `next lint`, comando indisponível na versão instalada; o script precisa ser atualizado. Não há framework de testes ou workflow de CI versionado.
 
-### Watermelon UI
-```bash
-npx shadcn add https://ui.watermelon.sh/r/<componente>.json
-```
+## Estado do contato
 
-## Deploy na Vercel
-
-1. Push para o GitHub
-2. Importe na [Vercel](https://vercel.com) — Next.js 16 detectado automaticamente
-3. Conecte `nobilis.com.br` e `www.nobilis.com.br` nas configurações de domínio
-
-> A Vercel tem suporte completo ao Next.js 16 incluindo `proxy.ts` e Cache Components.
+`app/api/contact/route.ts` valida o payload, registra os dados no console e retorna sucesso. **Ainda não envia e-mail nem persiste mensagens.** Resend e SMTP aparecem apenas como sugestões comentadas. `components/sections/Contact.tsx` mostra confirmação após HTTP 200; erros ficam no console. O e-mail da empresa está hospedado em um home server com Mailu, conforme informado pelo responsável. A integração SMTP do formulário ainda não foi implementada; host, porta, TLS e acesso externo precisam ser confirmados.
 
 ## Estrutura
 
-```
-app/
-  layout.tsx          → Root layout com fontes e metadata
-  page.tsx            → Página principal (composição das seções)
-  globals.css         → Variáveis CSS da paleta + reset + utilitários
-
-components/
-  layout/
-    Logo.tsx          → Wordmark reutilizável (4 variantes do manual)
-    CrimsonBar.tsx    → Barra crimson
-    Footer.tsx        → Rodapé
-  sections/
-    Hero.tsx          → Seção hero
-    Services.tsx      → Grid de serviços
-    ServiceCard.tsx   → Card individual de serviço
-    Contact.tsx       → Formulário de contato
-  ui/
-    button.tsx        → Button com variantes Nobilis (primary, ghost, outline)
-    input.tsx         → Input estilizado
-    label.tsx         → Label
-
-lib/
-  fonts.ts            → next/font — Cinzel + Outfit
-  utils.ts            → cn() helper
+```text
+app/                    → Páginas, layout, estilos, ícones e api/contact
+components/layout/      → Navegação, logo, rodapé e retorno ao topo
+components/sections/    → Seções institucionais e formulário
+components/manual/      → Manual interativo de marca
+components/ui/          → Primitivas de interface
+components/unlumen-ui/  → Componentes visuais locais
+lib/                    → Fontes e helper cn()
+providers/              → Tema
+public/                 → Imagens, fontes ZIP e manual HTML independente
+middleware.ts           → Rate limiting e X-Request-ID
+next.config.ts          → Headers, CSP e configuração de imagens
+docs/                   → Documentação local ainda não versionada
 ```
 
-## Paleta (Manual de Identidade Visual v1.0 · 2026)
+`app/manual/manual_layout.tsx` é um arquivo auxiliar; a rota do manual é definida em `app/manual/page.tsx`.
 
-| Token         | Hex       | Uso                             |
-|---------------|-----------|---------------------------------|
-| crimson-400 ★ | #C0392B   | Cor primária — CTAs, destaques  |
-| crimson-600   | #8B1A10   | Hover, ênfase secundária        |
-| obsidian-800  | #0D0D0D   | Fundo principal dark            |
-| obsidian-0    | #FAF7F7   | Fundo light, texto sobre dark   |
-| obsidian-400  | #555555   | Texto secundário, ícones        |
+## Adicionar componentes
 
-## Tipografia
+Comandos de referência; a disponibilidade dos registries não foi testada nesta documentação:
 
-| Família | Uso                                      | Pesos       |
-|---------|------------------------------------------|-------------|
-| Cinzel  | Logotipo, títulos de seção, destaques    | 400 600 700 |
-| Outfit  | Corpo de texto, UI, labels, botões       | 300 400 500 |
+```bash
+# shadcn/ui
+npx shadcn@latest add <component>
 
-## Notas Next.js 16
+# Unlumen UI — registry também declarado em components.json
+npx shadcn add https://ui.unlumen.com/r/<component>.json
 
-- **Turbopack** é o bundler padrão — não adicionar configuração webpack
-- **Caching explícito** — use `'use cache'` em componentes que precisam de cache
-- **`proxy.ts`** substituiu o `middleware.ts` para lógica de rede (quando necessário)
-- **Node.js 20+** obrigatório — verifique a versão antes de rodar
+# Watermelon UI — referência opcional, sem uso confirmado no inventário
+npx shadcn add https://ui.watermelon.sh/r/<component>.json
+```
+
+Inspecionar o código gerado e adaptar aos componentes e tokens existentes.
+
+## Identidade visual
+
+Referências executáveis: `app/globals.css`, `tailwind.config.ts`, `lib/fonts.ts` e `components/layout/Logo.tsx`. Guia visual em `/manual`.
+
+| Token | Hex | Uso |
+|---|---|---|
+| crimson-400 | #C0392B | Primária, CTAs e destaques |
+| crimson-600 | #8B1A10 | Hover e ênfase secundária |
+| obsidian-800 | #0D0D0D | Fundo escuro |
+| obsidian-0 | #FAF7F7 | Fundo claro e texto sobre fundo escuro |
+| obsidian-400 | #555555 | Cor neutra da paleta |
+
+| Família | Uso | Pesos carregados |
+|---|---|---|
+| Cinzel | Logotipo e aplicações da marca | 400, 600, 700 |
+| Bricolage Grotesque | Títulos, corpo e interface | Variável, 200–800; tamanho óptico automático |
+
+`providers/theme-provider.tsx` usa `data-theme`, modo claro inicial, preferência do visitante preservada e seleção pelo sistema desabilitada. Os tokens semânticos variam por tema; classes de cor fixa em `tailwind.config.ts` precisam de verificação separada.
+
+## Deploy
+
+O site está publicado na **Vercel**, conforme confirmação do responsável em 2026-10-10, acompanhada de capturas da página inicial e da seção de IA em produção. A entrega de mensagens pelo formulário permanece pendente.
+
+Configurar `NEXT_PUBLIC_BRANDFETCH_CLIENT_ID` no ambiente de deploy quando necessário para o carrossel. O projeto utiliza execução no servidor para API e middleware; não é apenas uma exportação estática. `next.config.ts` contém headers e CSP globais; o redirect de `www` para o domínio principal permanece comentado.
+
+## Fluxo de alterações
+
+Criar uma branch de trabalho a partir de `develop`, abrir PR para `develop` e, após revisão e validação, abrir PR de `develop` para `main`. A promoção para `main` depende da aprovação do responsável.
+
+## Documentação
+
+Os arquivos abaixo existem no ambiente de manutenção, mas ainda não estão versionados no repositório. Não fazem parte de uma clonagem do GitHub. `documentacao-nobilis.md` reúne stack, estrutura, integrações, segurança e estado do projeto.
+
+| Documento | Conteúdo |
+|---|---|
+| `docs/ARCHITECTURE.md` | Componentes, fluxos e limites |
+| `docs/API.md` | Rotas, payloads, respostas e cenários pendentes |
+| `docs/DECISIONS.md` | ADRs e consequências das escolhas observadas |
+| `docs/PROGRESS.md` | Histórico e pendências atuais |
+| `docs/modules/00-foundation.md` | Fundação e landing page |
+| `docs/modules/01-contact-security.md` | Contato e segurança |
+| `docs/modules/02-brand-manual.md` | Identidade visual e manual |
+| `CLAUDE.md` | Contexto curto para manutenção |
+| `PROMPT_CLAUDE_CODE.md` | Orientações de desenvolvimento do projeto existente |
