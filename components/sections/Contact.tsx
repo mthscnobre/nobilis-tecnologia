@@ -22,7 +22,7 @@ function FloatingTextarea({
         className={cn(
           "peer w-full px-4 py-3 border rounded-lg bg-transparent outline-none resize-vertical",
           "border-border focus:border-primary transition-colors",
-          "font-outfit font-light text-sm text-[var(--foreground)]",
+          "font-bricolage font-light text-sm text-[var(--foreground)]",
           className
         )}
         placeholder=" "
@@ -99,7 +99,7 @@ export function Contact() {
           className="text-center mb-12"
         >
           <span className="eyebrow mb-3">Entre em contato</span>
-          <h2 className="font-cinzel font-bold text-2xl md:text-3xl text-[var(--foreground)] tracking-[0.08em] uppercase mb-4">
+          <h2 className="font-bricolage font-bold text-2xl md:text-3xl text-[var(--foreground)] tracking-[0.08em] uppercase mb-4">
             Vamos conversar?
           </h2>
           <p className="text-[var(--muted)] font-light text-sm leading-relaxed max-w-sm mx-auto">
@@ -165,7 +165,7 @@ export function Contact() {
                   radius={120}
                   strength={0.4}
                   springOptions={{ stiffness: 180, damping: 18, mass: 0.1 }}
-                  className="w-full bg-[var(--primary)] text-[var(--primary-fg)] hover:bg-[var(--primary-hover)] font-outfit font-medium text-[0.8rem] tracking-[0.1em] uppercase rounded-[6px] disabled:opacity-60"
+                  className="w-full bg-[var(--primary)] text-[var(--primary-fg)] hover:bg-[var(--primary-hover)] font-bricolage font-medium text-[0.8rem] tracking-[0.1em] uppercase rounded-[6px] disabled:opacity-60"
                 >
                   {sending ? (
                     <>
@@ -200,7 +200,7 @@ export function Contact() {
                 >
                   <CheckCircle className="w-14 h-14 text-[var(--primary)]" strokeWidth={1.5} />
                 </motion.div>
-                <p className="font-cinzel text-[var(--foreground)] text-lg font-semibold tracking-wide uppercase">
+                <p className="font-bricolage text-[var(--foreground)] text-lg font-semibold tracking-wide uppercase">
                   Mensagem enviada
                 </p>
                 <p className="text-[var(--muted)] text-sm font-light leading-relaxed max-w-xs">
@@ -222,7 +222,7 @@ export function Contact() {
           <Mail className="w-3.5 h-3.5 text-[var(--muted-subtle)]" strokeWidth={1.5} />
           <a
             href="mailto:contato@nobilistecnologia.com.br"
-            className="text-[var(--muted)] text-xs font-outfit font-light tracking-wide hover:text-[var(--primary)] transition-colors duration-200"
+            className="text-[var(--muted)] text-xs font-bricolage font-light tracking-wide hover:text-[var(--primary)] transition-colors duration-200"
           >
             contato@nobilistecnologia.com.br
           </a>

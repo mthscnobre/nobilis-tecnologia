@@ -21,16 +21,19 @@ export function Hero() {
       </motion.div>
 
       {/* Tagline */}
-      <div className="mt-8 max-w-lg">
+      <div className="mt-8 max-w-2xl">
         <TextReveal
-          text="Sistemas, consultoria e infraestrutura para empresas que precisam de tecnologia que funciona."
-          as="p"
+          text="Tecnologia que funciona. IA que faz parte da operação."
+          as="h1"
           splitBy="words"
           staggerDelay={0.04}
           duration={0.5}
           once
-          className="font-outfit font-light text-base md:text-lg leading-relaxed text-[var(--muted)]"
+          className="font-bricolage font-semibold text-2xl md:text-3xl leading-relaxed text-[var(--muted)]"
         />
+        <p className="mt-5 font-bricolage font-normal text-base leading-relaxed text-[var(--muted)]">
+          Implementação de IA e desenvolvimento de soluções personalizadas, com a experiência de quem também constrói sistemas e cuida da infraestrutura.
+        </p>
       </div>
 
       {/* Seta para próxima seção */}

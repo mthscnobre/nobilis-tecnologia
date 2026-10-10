@@ -125,7 +125,7 @@ function Swatch({ hex, name, light, star }: SwatchItem) {
 function SwatchRow({ swatches, label }: { swatches: SwatchItem[]; label: string }) {
   return (
     <div className="mb-10">
-      <p className="font-outfit text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-[var(--muted)] mb-3">
+      <p className="font-bricolage text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-[var(--muted)] mb-3">
         {label}
       </p>
       {/* overflow-x hidden para não vazar na página, overflow-y visible para o scale */}
@@ -160,10 +160,10 @@ export function ManualPalette() {
           className="text-center mb-14"
         >
           <span className="eyebrow mb-3">02</span>
-          <h2 className="font-cinzel font-bold text-2xl md:text-3xl text-[var(--foreground)] tracking-[0.08em] uppercase">
+          <h2 className="font-bricolage font-bold text-2xl md:text-3xl text-[var(--foreground)] tracking-[0.08em] uppercase">
             Paleta de Cores
           </h2>
-          <p className="font-outfit font-light text-sm text-[var(--muted)] mt-4">
+          <p className="font-bricolage font-light text-sm text-[var(--muted)] mt-4">
             Passe o mouse para expandir · Clique para copiar o hex
           </p>
         </motion.div>
@@ -190,7 +190,7 @@ export function ManualPalette() {
         >
           <div className="grid grid-cols-3 bg-[var(--surface)] px-4 py-2.5 border-b border-[var(--border)]">
             {["Token", "Hex", "Uso principal"].map(h => (
-              <span key={h} className="font-outfit text-[0.65rem] uppercase tracking-[0.08em] text-[var(--muted)] font-semibold">
+              <span key={h} className="font-bricolage text-[0.65rem] uppercase tracking-[0.08em] text-[var(--muted)] font-semibold">
                 {h}
               </span>
             ))}
@@ -224,7 +224,7 @@ export function ManualPalette() {
                   <Copy className="w-3 h-3 text-[var(--muted)]" strokeWidth={1.5} />
                 </button>
               </div>
-              <span className="font-outfit font-light text-[0.75rem] text-[var(--muted)]">{t.uso}</span>
+              <span className="font-bricolage font-light text-[0.75rem] text-[var(--muted)]">{t.uso}</span>
             </motion.div>
           ))}
         </motion.div>

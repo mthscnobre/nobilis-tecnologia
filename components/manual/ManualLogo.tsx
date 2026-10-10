@@ -44,10 +44,10 @@ export function ManualLogo() {
           className="text-center mb-14"
         >
           <span className="eyebrow mb-3">01</span>
-          <h2 className="font-cinzel font-bold text-2xl md:text-3xl text-[var(--foreground)] tracking-[0.08em] uppercase">
+          <h2 className="font-bricolage font-bold text-2xl md:text-3xl text-[var(--foreground)] tracking-[0.08em] uppercase">
             Logotipo
           </h2>
-          <p className="font-outfit font-light text-sm text-[var(--muted)] mt-4 max-w-md mx-auto leading-relaxed">
+          <p className="font-bricolage font-light text-sm text-[var(--muted)] mt-4 max-w-md mx-auto leading-relaxed">
             O wordmark NOBILIS é sempre em Cinzel 700. O subtítulo TECNOLOGIA em Cinzel 400.
             Quatro variantes conforme o contexto de aplicação.
           </p>
@@ -88,10 +88,10 @@ export function ManualLogo() {
                   </GlowingBadge>
                 </div>
                 <div className="mt-4">
-                  <div className="font-outfit font-medium text-xs" style={{ color: v.wordColor, opacity: 0.6 }}>
+                  <div className="font-bricolage font-medium text-xs" style={{ color: v.wordColor, opacity: 0.6 }}>
                     {v.label}
                   </div>
-                  <div className="font-outfit font-light text-xs mt-0.5" style={{ color: v.wordColor, opacity: 0.4 }}>
+                  <div className="font-bricolage font-light text-xs mt-0.5" style={{ color: v.wordColor, opacity: 0.4 }}>
                     {v.caption}
                   </div>
                 </div>
@@ -117,7 +117,7 @@ export function ManualLogo() {
               key={item.label}
               className="border border-[var(--border)] rounded-[10px] px-4 py-3 bg-[var(--surface)] shimmer-card animate"
             >
-              <div className="font-cinzel font-bold text-xs tracking-wide text-[var(--foreground)] mb-1">
+              <div className="font-bricolage font-bold text-xs tracking-wide text-[var(--foreground)] mb-1">
                 {item.label}
               </div>
               <div className="font-mono font-light text-[0.7rem] text-[var(--muted)]">

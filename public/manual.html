@@ -4,28 +4,29 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Manual de Identidade Visual — Nobilis Tecnologia</title>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap" rel="stylesheet">
 <style>
 /* ── RESET & BASE ── */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg:        #0D0D0D;
-  --surface:   #141414;
-  --surface2:  #1E1E1E;
-  --border:    #262626;
-  --fg:        #FAF7F7;
-  --muted:     #777;
-  --subtle:    #444;
+  --bg:        #FAF7F7;
+  --surface:   #F0EDED;
+  --surface2:  #E8E5E5;
+  --border:    #D5D2D2;
+  --fg:        #1A0A0A;
+  --muted:     #666;
+  --subtle:    #777;
   --primary:   #C0392B;
   --primary-h: #8B1A10;
   --cinzel:    'Cinzel', Georgia, serif;
-  --outfit:    'Outfit', system-ui, sans-serif;
+  --bricolage:    'Bricolage Grotesque', system-ui, sans-serif;
 }
 html{scroll-behavior:smooth}
 body{
   background:var(--bg);
   color:var(--fg);
-  font-family:var(--outfit);
+  font-family:var(--bricolage);
+  font-optical-sizing:auto;
   font-size:15px;
   line-height:1.7;
   overflow-x:hidden;
@@ -55,7 +56,7 @@ nav{
 .nav-logo-w{font-family:var(--cinzel);font-weight:700;font-size:.875rem;letter-spacing:.1em;color:var(--fg)}
 .nav-logo-s{font-family:var(--cinzel);font-weight:400;font-size:.42rem;letter-spacing:.26em;color:var(--primary);text-transform:uppercase}
 .nav-links{display:flex;gap:2rem}
-.nav-links a{font-family:var(--outfit);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s}
+.nav-links a{font-family:var(--bricolage);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s}
 .nav-links a:hover{color:var(--fg)}
 
 /* ── HERO ── */
@@ -79,7 +80,8 @@ nav{
 }
 .hero-tag{
   margin-top:2.5rem;
-  font-family:var(--outfit);font-weight:300;
+  font-family:var(--bricolage);
+  font-optical-sizing:auto;font-weight:300;
   font-size:clamp(.875rem,1.5vw,1rem);
   color:var(--muted);max-width:480px;line-height:1.7;
   opacity:0;animation:fadeUp .8s .7s forwards;
@@ -112,7 +114,7 @@ main{position:relative;z-index:1}
 .section{padding:5rem 2rem;max-width:960px;margin:0 auto}
 .section-sep{height:1px;max-width:960px;margin:0 auto;background:linear-gradient(to right,transparent,var(--border) 20%,var(--border) 80%,transparent)}
 .eyebrow{display:block;font-size:.65rem;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--primary);margin-bottom:.75rem}
-.section-title{font-family:var(--cinzel);font-weight:700;font-size:clamp(1.5rem,3vw,2.2rem);letter-spacing:.08em;text-transform:uppercase;color:var(--fg)}
+.section-title{font-family:var(--bricolage);font-weight:700;font-size:clamp(1.5rem,3vw,2.2rem);letter-spacing:.08em;text-transform:uppercase;color:var(--fg)}
 
 /* ── 01 LOGOTIPO ── */
 .logo-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:2.5rem}
@@ -130,7 +132,7 @@ main{position:relative;z-index:1}
 .logo-box.accent{background:#F0EDED;border-color:#D8D8D8}
 .lbw{font-family:var(--cinzel);font-size:2rem;font-weight:700;letter-spacing:.1em;line-height:1}
 .lbs{font-family:var(--cinzel);font-size:.625rem;font-weight:400;letter-spacing:.26em;text-transform:uppercase;margin-top:.5rem}
-.logo-cap{font-size:.75rem;color:var(--muted);margin-top:.75rem;font-family:var(--outfit)}
+.logo-cap{font-size:.75rem;color:var(--muted);margin-top:.75rem;font-family:var(--bricolage)}
 
 /* ── 02 PALETA ── */
 .palette-group{margin-bottom:2.5rem}
@@ -170,8 +172,8 @@ main{position:relative;z-index:1}
 .tipo-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--primary)}
 .tipo-tag{font-size:.65rem;color:var(--muted);letter-spacing:.12em;text-transform:uppercase;margin-bottom:1rem}
 .tipo-h1{font-family:var(--cinzel);font-size:2.5rem;font-weight:700;color:var(--fg);letter-spacing:.06em;line-height:1.1}
-.tipo-h2{font-family:var(--cinzel);font-size:1.5rem;font-weight:600;color:var(--fg);letter-spacing:.08em;margin-top:.5rem}
-.tipo-h3{font-family:var(--cinzel);font-size:.875rem;font-weight:400;color:var(--muted);letter-spacing:.14em;text-transform:uppercase;margin-top:.5rem}
+.tipo-h2{font-family:var(--bricolage);font-size:1.5rem;font-weight:600;color:var(--fg);letter-spacing:.08em;margin-top:.5rem}
+.tipo-h3{font-family:var(--bricolage);font-size:.875rem;font-weight:400;color:var(--muted);letter-spacing:.14em;text-transform:uppercase;margin-top:.5rem}
 .tipo-body{font-size:.95rem;font-weight:400;color:var(--muted);line-height:1.7;margin-top:.75rem}
 .tipo-ui{font-size:.8rem;font-weight:500;color:var(--fg);letter-spacing:.04em;margin-top:.5rem}
 .tipo-meta{font-size:.7rem;color:var(--subtle);margin-top:1rem;padding-top:.75rem;border-top:1px solid var(--border);line-height:1.8}
@@ -199,7 +201,7 @@ main{position:relative;z-index:1}
 }
 .cartao:hover{transform:translateY(-4px) rotateX(2deg);box-shadow:0 20px 60px rgba(192,57,43,.15)}
 .cartao::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--primary)}
-.cartao-nome{font-family:var(--cinzel);font-size:1rem;font-weight:600;color:#F0EDED;letter-spacing:.07em}
+.cartao-nome{font-family:var(--bricolage);font-size:1rem;font-weight:600;color:#F0EDED;letter-spacing:.07em}
 .cartao-cargo{font-size:.7rem;color:var(--primary);letter-spacing:.1em;text-transform:uppercase;margin-top:.25rem}
 .cartao-info{font-size:.7rem;color:var(--muted);margin-top:1.5rem;line-height:1.9}
 .cartao-marca{font-family:var(--cinzel);font-size:1.25rem;font-weight:700;color:#F0EDED;letter-spacing:.1em}
@@ -210,7 +212,7 @@ main{position:relative;z-index:1}
   background:var(--surface);border-radius:14px;padding:1.75rem 2rem;
   border:1px solid var(--border);border-left:4px solid var(--primary);
 }
-.ass-nome{font-family:var(--cinzel);font-size:1.1rem;font-weight:700;color:var(--fg);letter-spacing:.06em}
+.ass-nome{font-family:var(--bricolage);font-size:1.1rem;font-weight:700;color:var(--fg);letter-spacing:.06em}
 .ass-cargo{font-size:.7rem;color:var(--primary);letter-spacing:.1em;text-transform:uppercase;margin-top:.25rem}
 .ass-div{border:none;border-top:1px solid var(--border);margin:.75rem 0}
 .ass-empresa{font-family:var(--cinzel);font-size:.75rem;color:var(--muted);letter-spacing:.1em}
@@ -258,7 +260,8 @@ footer{
   content:attr(data-tip);
   position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%);
   background:var(--primary);color:#fff;
-  font-family:var(--outfit);font-size:.65rem;font-weight:500;letter-spacing:.08em;
+  font-family:var(--bricolage);
+  font-optical-sizing:auto;font-size:.65rem;font-weight:500;letter-spacing:.08em;
   padding:.3rem .75rem;border-radius:6px;white-space:nowrap;
   pointer-events:none;z-index:100;
 }
@@ -308,7 +311,7 @@ footer{
 <section id="topo" class="hero">
   <div class="hero-wordmark">NOBILIS</div>
   <div class="hero-sub">Tecnologia</div>
-  <p class="hero-tag">Manual de Identidade Visual · v1.0 · 2026</p>
+  <p class="hero-tag">Manual de Identidade Visual · v1.1 · 2026</p>
   <div class="hero-badge"><span></span>Uso interno e confidencial</div>
   <a href="#logotipo" class="hero-arrow" aria-label="Ver manual">
     <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
@@ -416,14 +419,14 @@ footer{
 
   <div style="margin-top:2.5rem">
     <div class="tipo-card">
-      <div class="tipo-tag">Cinzel — Logotipo, títulos, destaques de marca</div>
+      <div class="tipo-tag">Cinzel — Logotipo e assinatura da marca</div>
       <div class="tipo-h1">NOBILIS TECNOLOGIA</div>
       <div class="tipo-h2">Soluções em Tecnologia</div>
       <div class="tipo-h3">Desenvolvimento · Consultoria · Sistemas</div>
       <div class="tipo-meta">
         H1 · Peso 700 · Tamanho mínimo 24px · Sempre uppercase no logotipo<br>
-        H2 · Peso 600 · Títulos de seção e cabeçalhos<br>
-        H3 · Peso 400 · Labels, subtítulos, chamadas uppercase<br>
+        Assinatura TECNOLOGIA · Peso 400 · Tracking 0.26–0.3em<br>
+        Títulos, subtítulos e interface usam Bricolage Grotesque<br>
         Download:
         <a href="https://fonts.google.com/specimen/Cinzel?preview.script=Latn" target="_blank" rel="noopener">Google Fonts — Cinzel</a>
         &nbsp;·&nbsp;
@@ -432,7 +435,7 @@ footer{
     </div>
 
     <div class="tipo-card">
-      <div class="tipo-tag">Outfit — Corpo de texto, interface, comunicação</div>
+      <div class="tipo-tag">Bricolage Grotesque — Títulos, corpo de texto e interface</div>
       <div class="tipo-body">A Nobilis Tecnologia desenvolve sistemas sob medida para empresas que buscam eficiência, controle e excelência em seus processos digitais. Nossa abordagem combina rigor técnico com atenção às necessidades reais do cliente.</div>
       <div class="tipo-ui">Dashboard · Relatórios · Exportar · Configurações · Suporte</div>
       <div class="tipo-meta">
@@ -440,9 +443,9 @@ footer{
         UI Labels · Peso 500 · 12–14px · Interline 1.4<br>
         Legendas · Peso 300 · 11–12px<br>
         Download:
-        <a href="https://fonts.google.com/specimen/Outfit?preview.script=Latn" target="_blank" rel="noopener">Google Fonts — Outfit</a>
+        <a href="https://fonts.google.com/specimen/Bricolage+Grotesque?preview.script=Latn" target="_blank" rel="noopener">Google Fonts — Bricolage Grotesque</a>
         &nbsp;·&nbsp;
-        <a href="/Outfit.zip" download>Baixar arquivo</a>
+        <a href="/BricolageGrotesque.zip" download>Baixar arquivo</a>
       </div>
     </div>
   </div>
@@ -453,10 +456,10 @@ footer{
       <tr><td>Logo NOBILIS</td><td>Cinzel</td><td>700</td><td>variável</td><td>0.1em</td></tr>
       <tr><td>Logo TECNOLOGIA (capa/hero)</td><td>Cinzel</td><td>400</td><td>13px+</td><td>0.3em</td></tr>
       <tr><td>Logo TECNOLOGIA (navbar/rodapé)</td><td>Cinzel</td><td>400</td><td>10px</td><td>0.26em</td></tr>
-      <tr><td>Títulos de seção</td><td>Cinzel</td><td>700</td><td>24–36px</td><td>0.08em</td></tr>
-      <tr><td>Eyebrow / label</td><td>Outfit</td><td>500</td><td>11px</td><td>0.22em</td></tr>
-      <tr><td>Corpo de texto</td><td>Outfit</td><td>300–400</td><td>15–16px</td><td>normal</td></tr>
-      <tr><td>Botões / UI</td><td>Outfit</td><td>500</td><td>12–13px</td><td>0.08–0.1em</td></tr>
+      <tr><td>Títulos de seção</td><td>Bricolage Grotesque</td><td>600–700</td><td>24–36px</td><td>0.08em</td></tr>
+      <tr><td>Eyebrow / label</td><td>Bricolage Grotesque</td><td>500</td><td>11px</td><td>0.22em</td></tr>
+      <tr><td>Corpo de texto</td><td>Bricolage Grotesque</td><td>300–400</td><td>15–16px</td><td>normal</td></tr>
+      <tr><td>Botões / UI</td><td>Bricolage Grotesque</td><td>500</td><td>12–13px</td><td>0.08–0.1em</td></tr>
     </tbody>
   </table>
 </section>
@@ -520,8 +523,9 @@ footer{
       <div class="regra-item">Use NOBILIS em caixa alta com a fonte Cinzel</div>
       <div class="regra-item">Use o vermelho #C0392B como cor de acento principal</div>
       <div class="regra-item">Mantenha espaço mínimo ao redor do logotipo equivalente à altura da letra "B"</div>
-      <div class="regra-item">Use Outfit para todo corpo de texto e interfaces</div>
+      <div class="regra-item">Use Bricolage Grotesque para títulos, corpo de texto e interfaces</div>
       <div class="regra-item">Aplique sempre o logotipo nas quatro versões previstas</div>
+      <div class="regra-item">Use o tema claro como padrão em novas visitas e preserve a preferência escolhida</div>
     </div>
     <div class="regra nao">
       <div class="regra-titulo">✗ Incorreto</div>
@@ -590,9 +594,9 @@ footer{
   <div class="footer-links">
     <a href="https://nobilistecnologia.com.br" target="_blank">Site</a>
     <a href="https://fonts.google.com/specimen/Cinzel?preview.script=Latn" target="_blank">Cinzel</a>
-    <a href="https://fonts.google.com/specimen/Outfit?preview.script=Latn" target="_blank">Outfit</a>
+    <a href="https://fonts.google.com/specimen/Bricolage+Grotesque?preview.script=Latn" target="_blank">Bricolage Grotesque</a>
   </div>
-  <div style="font-size:.65rem;color:var(--subtle);margin-top:.5rem">Manual de Identidade Visual · v1.0 · 2026 · Uso interno</div>
+  <div style="font-size:.65rem;color:var(--subtle);margin-top:.5rem">Manual de Identidade Visual · v1.1 · 2026 · Uso interno</div>
 </footer>
 
 <div class="crimson-bar"></div>

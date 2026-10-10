@@ -25,7 +25,7 @@ export function Footer() {
             >
               TECNOLOGIA
             </span>
-            <p className="font-outfit font-light text-[0.7rem] text-[var(--muted)] mt-2 max-w-[240px] text-center md:text-left leading-relaxed">
+            <p className="font-bricolage font-light text-[0.7rem] text-[var(--muted)] mt-2 max-w-[240px] text-center md:text-left leading-relaxed">
               Em latim, Nobilis. Em português, Nobre.
 Uma homenagem ao sobrenome do fundador.
             </p>
@@ -39,7 +39,7 @@ Uma homenagem ao sobrenome do fundador.
           <div className="flex flex-col items-center md:items-end gap-2">
             <a
               href="/manual"
-              className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-[var(--border)] hover:border-[var(--primary)] font-outfit font-light text-[0.62rem] tracking-[0.1em] uppercase text-[var(--muted)] hover:text-[var(--primary)] transition-all duration-200"
+              className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-[var(--border)] hover:border-[var(--primary)] font-bricolage font-light text-[0.62rem] tracking-[0.1em] uppercase text-[var(--muted)] hover:text-[var(--primary)] transition-all duration-200"
             >
               Manual de Identidade Visual ↗
             </a>

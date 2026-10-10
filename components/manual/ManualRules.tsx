@@ -8,8 +8,9 @@ const correct = [
   "Use NOBILIS em caixa alta com a fonte Cinzel",
   "Use o vermelho #C0392B como cor de acento principal",
   "Mantenha espaço mínimo ao redor do logotipo equivalente à altura da letra B",
-  "Use Outfit para todo corpo de texto e interfaces",
+  "Use Bricolage Grotesque para títulos, corpo de texto e interfaces",
   "Aplique sempre o logotipo nas quatro versões previstas",
+  "Use o tema claro como padrão em novas visitas e preserve a preferência escolhida",
 ];
 
 const wrong = [
@@ -40,7 +41,7 @@ function RuleItem({
         <div className="mt-0.5 flex-shrink-0" style={{ color }}>
           {icon}
         </div>
-        <span className="font-outfit font-light text-[0.8rem] text-[var(--muted)] leading-snug">
+        <span className="font-bricolage font-light text-[0.8rem] text-[var(--muted)] leading-snug">
           {text}
         </span>
       </motion.div>
@@ -90,7 +91,7 @@ function RuleCard({
           <div style={{ color }}>{icon}</div>
         </div>
         <span
-          className="font-outfit font-semibold text-[0.7rem] tracking-[0.1em] uppercase"
+          className="font-bricolage font-semibold text-[0.7rem] tracking-[0.1em] uppercase"
           style={{ color }}
         >
           {label}
@@ -129,7 +130,7 @@ export function ManualRules() {
           className="text-center mb-14"
         >
           <span className="eyebrow mb-3">05</span>
-          <h2 className="font-cinzel font-bold text-2xl md:text-3xl text-[var(--foreground)] tracking-[0.08em] uppercase">
+          <h2 className="font-bricolage font-bold text-2xl md:text-3xl text-[var(--foreground)] tracking-[0.08em] uppercase">
             Regras de Uso
           </h2>
         </motion.div>
