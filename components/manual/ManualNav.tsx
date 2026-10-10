@@ -51,7 +51,7 @@ export function ManualNav() {
         className="flex items-center gap-2 text-[var(--muted)] hover:text-[var(--primary)] transition-colors duration-200 group"
       >
         <ArrowLeft className="w-4 h-4 transition-transform duration-200 group-hover:-translate-x-1" strokeWidth={1.5} />
-        <span className="font-outfit text-[0.7rem] tracking-[0.1em] uppercase">Site</span>
+        <span className="font-bricolage text-[0.7rem] tracking-[0.1em] uppercase">Site</span>
       </Link>
 
       {/* Âncoras das seções */}
@@ -61,7 +61,7 @@ export function ManualNav() {
             key={s.id}
             href={`#${s.id}`}
             className={cn(
-              "px-3 py-1 rounded-full font-outfit text-[0.65rem] tracking-[0.08em] uppercase transition-all duration-200",
+              "px-3 py-1 rounded-full font-bricolage text-[0.65rem] tracking-[0.08em] uppercase transition-all duration-200",
               active === s.id
                 ? "bg-[var(--primary)] text-[var(--primary-fg)]"
                 : "text-[var(--muted)] hover:text-[var(--foreground)]"

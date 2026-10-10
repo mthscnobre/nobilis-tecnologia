@@ -1,4 +1,4 @@
-import { Cinzel, Outfit } from "next/font/google";
+import { Cinzel, Bricolage_Grotesque } from "next/font/google";
 
 export const cinzel = Cinzel({
   subsets: ["latin"],
@@ -7,9 +7,10 @@ export const cinzel = Cinzel({
   display: "swap",
 });
 
-export const outfit = Outfit({
+export const bricolage = Bricolage_Grotesque({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
-  variable: "--font-outfit",
+  weight: "variable",
+  axes: ["opsz"],
+  variable: "--font-bricolage",
   display: "swap",
 });

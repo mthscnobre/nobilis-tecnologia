@@ -15,7 +15,7 @@ export function ManualApplications() {
           className="text-center mb-14"
         >
           <span className="eyebrow mb-3">04</span>
-          <h2 className="font-cinzel font-bold text-2xl md:text-3xl text-[var(--foreground)] tracking-[0.08em] uppercase">
+          <h2 className="font-bricolage font-bold text-2xl md:text-3xl text-[var(--foreground)] tracking-[0.08em] uppercase">
             Aplicações
           </h2>
         </motion.div>
@@ -24,7 +24,7 @@ export function ManualApplications() {
 
           {/* Cartão de visita */}
           <div>
-            <p className="font-outfit text-[0.7rem] text-[var(--muted)] uppercase tracking-[0.1em] mb-3">Cartão de visita</p>
+            <p className="font-bricolage text-[0.7rem] text-[var(--muted)] uppercase tracking-[0.1em] mb-3">Cartão de visita</p>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -39,13 +39,13 @@ export function ManualApplications() {
               >
                 <div className="absolute top-0 left-0 right-0 h-[3px] bg-[#C0392B]" />
                 <div>
-                  <div className="font-cinzel font-semibold text-base text-[#F0EDED] tracking-[0.07em]">
+                  <div className="font-bricolage font-semibold text-base text-[#F0EDED] tracking-[0.07em]">
                     Matheus Chaves Nobre
                   </div>
-                  <div className="font-outfit text-[0.7rem] text-[#C0392B] tracking-[0.1em] uppercase mt-1">
+                  <div className="font-bricolage text-[0.7rem] text-[#C0392B] tracking-[0.1em] uppercase mt-1">
                     Desenvolvedor &amp; Consultor de TI
                   </div>
-                  <div className="font-outfit text-[0.7rem] text-[#777] mt-5 leading-[1.9]">
+                  <div className="font-bricolage text-[0.7rem] text-[#777] mt-5 leading-[1.9]">
                     matheus@nobilis.com.br<br />
                     nobilistecnologia.com.br<br />
                     Brasília, DF
@@ -65,7 +65,7 @@ export function ManualApplications() {
 
           {/* Assinatura de e-mail */}
           <div>
-            <p className="font-outfit text-[0.7rem] text-[var(--muted)] uppercase tracking-[0.1em] mb-3">Assinatura de e-mail</p>
+            <p className="font-bricolage text-[0.7rem] text-[var(--muted)] uppercase tracking-[0.1em] mb-3">Assinatura de e-mail</p>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -79,17 +79,17 @@ export function ManualApplications() {
                 style={{ background: "var(--surface)", minHeight: "220px", borderLeft: "4px solid #C0392B" }}
               >
                 <div>
-                  <div className="font-cinzel font-bold text-lg text-[var(--foreground)] tracking-[0.06em]">
+                  <div className="font-bricolage font-bold text-lg text-[var(--foreground)] tracking-[0.06em]">
                     Matheus Chaves Nobre
                   </div>
-                  <div className="font-outfit text-[0.7rem] text-[#C0392B] tracking-[0.1em] uppercase mt-1">
+                  <div className="font-bricolage text-[0.7rem] text-[#C0392B] tracking-[0.1em] uppercase mt-1">
                     Desenvolvedor · Consultor de TI
                   </div>
                   <div className="border-t border-[var(--border)] my-4" />
                   <div className="font-cinzel text-[0.75rem] text-[var(--muted)] tracking-[0.1em]">
                     NOBILIS TECNOLOGIA
                   </div>
-                  <div className="font-outfit text-[0.75rem] text-[var(--muted)] mt-2 leading-[1.9]">
+                  <div className="font-bricolage text-[0.75rem] text-[var(--muted)] mt-2 leading-[1.9]">
                     matheus@nobilis.com.br<br />
                     nobilistecnologia.com.br<br />
                     Brasília, DF

@@ -29,7 +29,7 @@ export function ManualFooter() {
             >
               TECNOLOGIA
             </span>
-            <p className="font-outfit font-light text-[0.7rem] text-[var(--muted)] mt-2 max-w-[260px] text-center md:text-left leading-relaxed">
+            <p className="font-bricolage font-light text-[0.7rem] text-[var(--muted)] mt-2 max-w-[260px] text-center md:text-left leading-relaxed">
               Em latim, Nobilis. Em português, Nobre.<br />
               Uma homenagem ao sobrenome do fundador.
             </p>
@@ -37,27 +37,27 @@ export function ManualFooter() {
 
           {/* Centro — info do manual */}
           <div className="flex flex-col items-center gap-1 text-center">
-            <span className="font-cinzel font-semibold text-[0.7rem] tracking-[0.1em] text-[var(--foreground)] uppercase">
+            <span className="font-bricolage font-semibold text-[0.7rem] tracking-[0.1em] text-[var(--foreground)] uppercase">
               Manual de Identidade Visual
             </span>
-            <span className="font-outfit font-light text-[0.65rem] text-[var(--muted)]">
-              Versão 1.0 · 2026 · Uso interno
+            <span className="font-bricolage font-light text-[0.65rem] text-[var(--muted)]">
+              Versão 1.1 · 2026 · Uso interno
             </span>
             <div className="flex items-center gap-3 mt-2">
               <a
                 href="/Cinzel.zip"
                 download
-                className="font-outfit text-[0.65rem] text-[var(--muted)] hover:text-[var(--primary)] transition-colors flex items-center gap-1"
+                className="font-bricolage text-[0.65rem] text-[var(--muted)] hover:text-[var(--primary)] transition-colors flex items-center gap-1"
               >
                 Cinzel ↓
               </a>
               <span className="text-[var(--border)]">·</span>
               <a
-                href="/Outfit.zip"
+                href="/BricolageGrotesque.zip"
                 download
-                className="font-outfit text-[0.65rem] text-[var(--muted)] hover:text-[var(--primary)] transition-colors flex items-center gap-1"
+                className="font-bricolage text-[0.65rem] text-[var(--muted)] hover:text-[var(--primary)] transition-colors flex items-center gap-1"
               >
-                Outfit ↓
+                Bricolage Grotesque ↓
               </a>
             </div>
           </div>
@@ -66,7 +66,7 @@ export function ManualFooter() {
           <div className="flex flex-col items-center md:items-end gap-2">
             <Link
               href="/"
-              className="flex items-center gap-2 px-4 py-2 rounded-full border border-[var(--border)] text-[0.7rem] font-outfit tracking-[0.08em] uppercase text-[var(--muted)] hover:text-[var(--primary)] hover:border-[var(--primary)] transition-all duration-200 group"
+              className="flex items-center gap-2 px-4 py-2 rounded-full border border-[var(--border)] text-[0.7rem] font-bricolage tracking-[0.08em] uppercase text-[var(--muted)] hover:text-[var(--primary)] hover:border-[var(--primary)] transition-all duration-200 group"
             >
               <ArrowLeft className="w-3.5 h-3.5 transition-transform duration-200 group-hover:-translate-x-0.5" strokeWidth={1.5} />
               Voltar ao site

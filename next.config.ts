@@ -7,7 +7,7 @@ const CSP = [
   "script-src 'self' 'unsafe-inline' 'unsafe-eval'",
   // Estilos inline usados pelo Tailwind e componentes de animação
   "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
-  // Fontes — Google Fonts (Cinzel e Outfit)
+  // Fontes — Google Fonts (Cinzel e Bricolage Grotesque)
   "font-src 'self' https://fonts.gstatic.com",
   // Imagens — Brandfetch CDN + domínios de logos externos
   [

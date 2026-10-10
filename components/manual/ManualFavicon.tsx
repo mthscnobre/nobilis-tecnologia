@@ -22,10 +22,10 @@ export function ManualFavicon() {
           className="text-center mb-14"
         >
           <span className="eyebrow mb-3">06</span>
-          <h2 className="font-cinzel font-bold text-2xl md:text-3xl text-[var(--foreground)] tracking-[0.08em] uppercase">
+          <h2 className="font-bricolage font-bold text-2xl md:text-3xl text-[var(--foreground)] tracking-[0.08em] uppercase">
             Favicon
           </h2>
-          <p className="font-outfit font-light text-sm text-[var(--muted)] mt-4 max-w-md mx-auto">
+          <p className="font-bricolage font-light text-sm text-[var(--muted)] mt-4 max-w-md mx-auto">
             Letra N em Cinzel Bold, cor <code className="font-mono text-[var(--primary)] text-xs">#C0392B</code>,
             fundo transparente. Cinco tamanhos para diferentes contextos.
           </p>
@@ -60,7 +60,7 @@ export function ManualFavicon() {
               </motion.div>
               <div className="text-center">
                 <div className="font-mono text-[0.65rem] text-[var(--foreground)]">{s.px}px</div>
-                <div className="font-outfit text-[0.6rem] text-[var(--muted)] mt-0.5">
+                <div className="font-bricolage text-[0.6rem] text-[var(--muted)] mt-0.5">
                   {s.px === 180 ? "Apple Touch" : s.px === 192 || s.px === 512 ? "Android PWA" : "Browser"}
                 </div>
               </div>
@@ -77,7 +77,7 @@ export function ManualFavicon() {
         >
           <div className="grid grid-cols-3 bg-[var(--surface)] px-4 py-2.5 border-b border-[var(--border)]">
             {["Arquivo", "Tamanho", "Destino"].map(h => (
-              <span key={h} className="font-outfit text-[0.65rem] uppercase tracking-[0.08em] text-[var(--muted)] font-semibold">{h}</span>
+              <span key={h} className="font-bricolage text-[0.65rem] uppercase tracking-[0.08em] text-[var(--muted)] font-semibold">{h}</span>
             ))}
           </div>
           {[
@@ -93,7 +93,7 @@ export function ManualFavicon() {
             >
               <span className="font-mono text-[0.75rem] text-[var(--primary)]">{file}</span>
               <span className="font-mono text-[0.75rem] text-[var(--muted)]">{size}</span>
-              <span className="font-outfit font-light text-[0.75rem] text-[var(--muted)]">{dest}</span>
+              <span className="font-bricolage font-light text-[0.75rem] text-[var(--muted)]">{dest}</span>
             </div>
           ))}
         </motion.div>

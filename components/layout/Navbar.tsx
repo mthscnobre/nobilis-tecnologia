@@ -7,6 +7,7 @@ import { ThemeSwitcher } from "@/components/layout/ThemeSwitcher";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
+  { label: "IA nas empresas", href: "#ia" },
   { label: "Serviços",   href: "#servicos"  },
   { label: "Abordagem",  href: "#abordagem" },
   { label: "Contato",    href: "#contato"   },
@@ -59,7 +60,7 @@ export function Navbar() {
           <a
             key={link.href}
             href={link.href}
-            className="font-outfit font-light text-[0.75rem] tracking-[0.1em] uppercase text-[var(--muted)] hover:text-[var(--foreground)] transition-colors duration-200"
+            className="font-bricolage font-light text-[0.75rem] tracking-[0.1em] uppercase text-[var(--muted)] hover:text-[var(--foreground)] transition-colors duration-200"
           >
             {link.label}
           </a>
